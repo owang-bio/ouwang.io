@@ -1,18 +1,47 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://owang-bio.github.io/ouwang.io/posts/my-first-post/</loc>
-    <lastmod>2021-06-15T14:37:50-06:00</lastmod>
-  </url><url>
-    <loc>https://owang-bio.github.io/ouwang.io/</loc>
-    <lastmod>2021-06-15T14:37:50-06:00</lastmod>
-  </url><url>
-    <loc>https://owang-bio.github.io/ouwang.io/posts/</loc>
-    <lastmod>2021-06-15T14:37:50-06:00</lastmod>
-  </url><url>
-    <loc>https://owang-bio.github.io/ouwang.io/categories/</loc>
-  </url><url>
-    <loc>https://owang-bio.github.io/ouwang.io/tags/</loc>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/posts/my-first-post/</loc>
+	    <lastmod>2021-06-15</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/posts/</loc>
+	    <lastmod>2021-06-15</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/</loc>
+	    <lastmod>2021-06-15</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/tags/</loc>
+	    <lastmod>0001-01-01</lastmod>
+        
+
+        
+	  </url>
+	  
+  
 </urlset>
