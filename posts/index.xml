@@ -1,19 +1,55 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Ramium</title>
+    <title>Posts on Forecast Analyst&#39;s Blog</title>
     <link>https://owang-bio.github.io/ouwang.io/posts/</link>
-    <description>Recent content in Posts on Ramium</description>
+    <description>Recent content in Posts on Forecast Analyst&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 Jun 2021 14:37:50 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>My First Post</title>
-      <link>https://owang-bio.github.io/ouwang.io/posts/my-first-post/</link>
-      <pubDate>Tue, 15 Jun 2021 14:37:50 -0600</pubDate>
+      <title>Markdown Syntax Guide</title>
+      <link>https://owang-bio.github.io/ouwang.io/posts/1.-markdown-syntax/</link>
+      <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://owang-bio.github.io/ouwang.io/posts/my-first-post/</guid>
-      <description>Haha!</description>
+      <guid>https://owang-bio.github.io/ouwang.io/posts/1.-markdown-syntax/</guid>
+      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Rich Content</title>
+      <link>https://owang-bio.github.io/ouwang.io/posts/3.-rich-content/</link>
+      <pubDate>Tue, 14 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/posts/3.-rich-content/</guid>
+      <description>&lt;p&gt;Hugo ships with several &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/#use-hugo-s-built-in-shortcodes&#34;&gt;Built-in Shortcodes&lt;/a&gt; for rich content, along with a &lt;a href=&#34;https://gohugo.io/about/hugo-and-gdpr/&#34;&gt;Privacy Config&lt;/a&gt; and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Emoji Support</title>
+      <link>https://owang-bio.github.io/ouwang.io/posts/4.-emoji-support/</link>
+      <pubDate>Mon, 13 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/posts/4.-emoji-support/</guid>
+      <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Math Typesetting</title>
+      <link>https://owang-bio.github.io/ouwang.io/posts/5.-math-typesetting/</link>
+      <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/posts/5.-math-typesetting/</guid>
+      <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Happy Birthday Chords</title>
+      <link>https://owang-bio.github.io/ouwang.io/posts/6.-happy-birthday-chords/</link>
+      <pubDate>Sat, 11 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/posts/6.-happy-birthday-chords/</guid>
+      <description>Happy ABirthday Eto youHappy EBirthday Ato youHappy A7Birthday dear DJohnnyHappy ABirthday Eto Ayou </description>
     </item>
     
   </channel>

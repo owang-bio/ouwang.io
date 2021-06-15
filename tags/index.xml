@@ -1,10 +1,119 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Ramium</title>
+    <title>Tags on Forecast Analyst&#39;s Blog</title>
     <link>https://owang-bio.github.io/ouwang.io/tags/</link>
-    <description>Recent content in Tags on Ramium</description>
+    <description>Recent content in Tags on Forecast Analyst&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://owang-bio.github.io/ouwang.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>css</title>
+      <link>https://owang-bio.github.io/ouwang.io/tags/css/</link>
+      <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/tags/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>html</title>
+      <link>https://owang-bio.github.io/ouwang.io/tags/html/</link>
+      <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/tags/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>markdown</title>
+      <link>https://owang-bio.github.io/ouwang.io/tags/markdown/</link>
+      <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>themes</title>
+      <link>https://owang-bio.github.io/ouwang.io/tags/themes/</link>
+      <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/tags/themes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>privacy</title>
+      <link>https://owang-bio.github.io/ouwang.io/tags/privacy/</link>
+      <pubDate>Tue, 14 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/tags/privacy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shortcodes</title>
+      <link>https://owang-bio.github.io/ouwang.io/tags/shortcodes/</link>
+      <pubDate>Tue, 14 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/tags/shortcodes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>emoji</title>
+      <link>https://owang-bio.github.io/ouwang.io/tags/emoji/</link>
+      <pubDate>Mon, 13 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/tags/emoji/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Katex</title>
+      <link>https://owang-bio.github.io/ouwang.io/tags/katex/</link>
+      <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/tags/katex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>math</title>
+      <link>https://owang-bio.github.io/ouwang.io/tags/math/</link>
+      <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/tags/math/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chords</title>
+      <link>https://owang-bio.github.io/ouwang.io/tags/chords/</link>
+      <pubDate>Sat, 11 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/tags/chords/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>music</title>
+      <link>https://owang-bio.github.io/ouwang.io/tags/music/</link>
+      <pubDate>Sat, 11 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/tags/music/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ramium</title>
+      <link>https://owang-bio.github.io/ouwang.io/tags/ramium/</link>
+      <pubDate>Thu, 19 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/tags/ramium/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
