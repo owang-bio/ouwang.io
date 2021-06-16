@@ -4,7 +4,18 @@
       
 	  <url>
 	    <loc>https://owang-bio.github.io/ouwang.io/</loc>
-	    <lastmod>2021-06-15</lastmod>
+	    <lastmod>2021-06-16</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/posts/introduction/default/</loc>
+	    <lastmod>2021-06-16</lastmod>
         
 
         
@@ -15,7 +26,7 @@
       
 	  <url>
 	    <loc>https://owang-bio.github.io/ouwang.io/posts/</loc>
-	    <lastmod>2021-06-15</lastmod>
+	    <lastmod>2021-06-16</lastmod>
         
 
         
@@ -25,8 +36,8 @@
       
       
 	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/posts/secound_post/</loc>
-	    <lastmod>2021-06-15</lastmod>
+	    <loc>https://owang-bio.github.io/ouwang.io/tags/tag1/</loc>
+	    <lastmod>2021-06-16</lastmod>
         
 
         
@@ -36,41 +47,8 @@
       
       
 	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/tags/css/</loc>
-	    <lastmod>2020-04-16</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/tags/html/</loc>
-	    <lastmod>2020-04-16</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/tags/markdown/</loc>
-	    <lastmod>2020-04-16</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/posts/1.-markdown-syntax/</loc>
-	    <lastmod>2020-04-16</lastmod>
+	    <loc>https://owang-bio.github.io/ouwang.io/tags/tag2/</loc>
+	    <lastmod>2021-06-16</lastmod>
         
 
         
@@ -81,143 +59,7 @@
       
 	  <url>
 	    <loc>https://owang-bio.github.io/ouwang.io/tags/</loc>
-	    <lastmod>2020-05-02</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/tags/themes/</loc>
-	    <lastmod>2020-04-16</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/tags/privacy/</loc>
-	    <lastmod>2020-04-14</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/posts/3.-rich-content/</loc>
-	    <lastmod>2020-04-14</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/tags/shortcodes/</loc>
-	    <lastmod>2020-04-14</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/tags/emoji/</loc>
-	    <lastmod>2020-04-13</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/posts/4.-emoji-support/</loc>
-	    <lastmod>2020-04-13</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/tags/katex/</loc>
-	    <lastmod>2020-04-12</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/tags/math/</loc>
-	    <lastmod>2020-04-12</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/posts/5.-math-typesetting/</loc>
-	    <lastmod>2020-04-12</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/tags/chords/</loc>
-	    <lastmod>2020-05-02</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/posts/6.-happy-birthday-chords/</loc>
-	    <lastmod>2020-05-02</lastmod>
-        
-	    <changefreq>never</changefreq>
-        
-
-        
-	    <priority>0.9</priority>
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/tags/music/</loc>
-	    <lastmod>2020-05-02</lastmod>
+	    <lastmod>2021-06-16</lastmod>
         
 
         
@@ -244,72 +86,6 @@
 	  <url>
 	    <loc>https://owang-bio.github.io/ouwang.io/sections/</loc>
 	    <lastmod>2020-04-06</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/getting-started-with-ramium/</loc>
-	    <lastmod>2020-03-19</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/tags/ramium/</loc>
-	    <lastmod>2020-03-19</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/getting-started-with-ramium/1.-tutorial/</loc>
-	    <lastmod>2020-03-19</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/introduction-to-ramium/2.-features-of-ramium/</loc>
-	    <lastmod>2020-03-18</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/introduction-to-ramium/</loc>
-	    <lastmod>2020-03-18</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/introduction-to-ramium/1.-about-ramium/</loc>
-	    <lastmod>2020-03-17</lastmod>
         
 
         
