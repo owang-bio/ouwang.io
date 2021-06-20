@@ -2,18 +2,18 @@
 <html lang="en-us">
 
 <head><title>
-    Date Functions for Forecast Analyst | 
+    Date Functions - Part 1 | 
     
     Forecast Analyst&#39;s Blog</title>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Brief introduction of functions related to datetime
+<meta name="description" content="Some useful date functions in Python
     ">
 
 
-<meta property="og:title" content="Date Functions for Forecast Analyst" />
-<meta property="og:description" content="Brief introduction of functions related to datetime" />
+<meta property="og:title" content="Date Functions - Part 1" />
+<meta property="og:description" content="Some useful date functions in Python" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/date_functions/" /><meta property="article:section" content="python-for-forecast-analyst" />
 <meta property="article:published_time" content="2021-06-15T23:58:51-06:00" />
@@ -21,14 +21,14 @@
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Date Functions for Forecast Analyst"/>
-<meta name="twitter:description" content="Brief introduction of functions related to datetime"/>
+<meta name="twitter:title" content="Date Functions - Part 1"/>
+<meta name="twitter:description" content="Some useful date functions in Python"/>
 
-<meta itemprop="name" content="Date Functions for Forecast Analyst">
-<meta itemprop="description" content="Brief introduction of functions related to datetime"><meta itemprop="datePublished" content="2021-06-15T23:58:51-06:00" />
+<meta itemprop="name" content="Date Functions - Part 1">
+<meta itemprop="description" content="Some useful date functions in Python"><meta itemprop="datePublished" content="2021-06-15T23:58:51-06:00" />
 <meta itemprop="dateModified" content="2021-06-15T23:58:51-06:00" />
-<meta itemprop="wordCount" content="2">
-<meta itemprop="keywords" content="python,pandas,datetime," />
+<meta itemprop="wordCount" content="421">
+<meta itemprop="keywords" content="python,datetime," />
 <link rel="canonical" href="https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/date_functions/" />
 
 <link rel="icon" type="image/png" href="https://owang-bio.github.io/ouwang.io/image/favicon.ico">
@@ -132,7 +132,7 @@ if (!doNotTrack) {
         <div id="page-body" class="column is-7">
 
 <div class="content blog">
-    <h1>Date Functions for Forecast Analyst</h1>
+    <h1>Date Functions - Part 1</h1>
 
     <div id="infobar" class="level is-mobile">
         <div class="level-left">
@@ -145,7 +145,7 @@ if (!doNotTrack) {
 
             <div class="level-item">
                 <p class="subtitle info">
-                    1 min read
+                    2 mins read
                 </p>
             </div>
         </div>
@@ -153,8 +153,6 @@ if (!doNotTrack) {
             <div class="tags">
                 
                 <a class="tag is-dark is-rounded" href="/ouwang.io/tags/python">Python</a>
-                
-                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/pandas">Pandas</a>
                 
                 <a class="tag is-dark is-rounded" href="/ouwang.io/tags/datetime">Datetime</a>
                 
@@ -166,8 +164,6 @@ if (!doNotTrack) {
         
         <a class="tag is-dark is-rounded" href="/ouwang.io/tags/python">Python</a>
         
-        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/pandas">Pandas</a>
-        
         <a class="tag is-dark is-rounded" href="/ouwang.io/tags/datetime">Datetime</a>
         
     </div>
@@ -175,8 +171,46 @@ if (!doNotTrack) {
     <div class="blog-text">
         
 
-        <p>to_datetime() method</p>
-
+        <p>As a forecast analyst, I am dealing with time series data every day. So, the first Python module I want to mention is Python datetime which provides basic classes for dates and time manipulation.</p>
+<p>For my current job, although I am helping several international markets, most of the time I don&rsquo;t need to worry about time zone or dailylight saving time, etc. If you are interested in the datetime type that include such information, you can learn more about it from the <a href="https://docs.python.org/3/library/datetime.html#date-objects">documentation</a>.</p>
+<p>In this post, I will introduce several classes in this module and class methods that I use the most frequently. Then, my next post will explain the use case for them.</p>
+<p>Of course, to use this module, we first need to import it:</p>
+<pre><code>import datetime
+</code></pre><p>&nbsp;</p>
+<p>One useful class in datetime module is datetime(). When instantiating, the arguments, year, month and day are required, and the others are optional:</p>
+<pre><code>datetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]])
+</code></pre><p>&nbsp;</p>
+<p>It instantiates a datetime object which has these attributes: year, month, day, hour, minute, second, microsecond, and tzinfo.
+For example:</p>
+<pre><code>dt = datetime.datetime(2021, 6, 1)
+</code></pre><p>will return the following object:</p>
+<pre><code>datetime.datetime(2021, 6, 1, 0, 0)
+</code></pre><p>&nbsp;</p>
+<p>The following code is how we can access it&rsquo;s year, month and day attributes, and you can access the other attributes using the dot notation. They are all integers.
+For example:</p>
+<pre><code>dt.year
+dt.month
+dt.day
+</code></pre><p>will return:</p>
+<pre><code>2021
+6
+1
+</code></pre><p>&nbsp;</p>
+<p>Another class that I use frequently is date(). It is very similar to datetime() class, but when we instantiate it, it only takes three arguments: year, month, day. They way to access it&rsquo;s attribute is the same as that of datetime objects.
+For example:</p>
+<pre><code>dt = datetime.date(2021, 6, 1)
+dt.year
+</code></pre><p>date() class has a today() method, it does not take any arguments, but return the today&rsquo;s date in local time.</p>
+<pre><code>datetime.date.today()
+</code></pre><p>&nbsp;</p>
+<p>Sometime we need to convert date/datetime objects into string format or <em>vice versa</em>, which is when strftime() and strptime() come in handy.</p>
+<p>datetime and date objects have a strftime() method that converts them into string, in a format that we can specify.
+For example:</p>
+<pre><code>dt = datetime.date(2021, 6, 1) #create a date object
+dt.strftime('%Y-%m-%d') #convert the date to string
+</code></pre><p>will convert the date to &ldquo;2021-06-01&rdquo; in string type. &ldquo;%Y&rdquo;, &ldquo;%m&rdquo;, and &ldquo;%d&rdquo; are called format Codes. <a href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior">Here</a> are more information about different format code that you can use to format your date in string. If we want the date string in the format of &ldquo;Jun-01-21&rdquo;, we can use format code of &ldquo;%B-%d-%y&rdquo;:</p>
+<pre><code>dt.strftime(format=&quot;%B-%d-%y&quot;)
+</code></pre>
     </div>
 </div><div id="social-media-share" class="has-text-centered">
 	<p><i>Sharing is caring!</i></p>
@@ -189,7 +223,7 @@ if (!doNotTrack) {
 	        <img src=/ouwang.io/img/icons/45px/facebook.png>
 	    </a>
 
-	    <a  href="https://twitter.com/intent/tweet?text=Date%20Functions%20for%20Forecast%20Analyst&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-forecast-analyst%2fdate_functions%2f"
+	    <a  href="https://twitter.com/intent/tweet?text=Date%20Functions%20-%20Part%201&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-forecast-analyst%2fdate_functions%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Twitter. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/twitter.png>
@@ -214,13 +248,13 @@ if (!doNotTrack) {
 	    </a>
 
 		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-forecast-analyst%2fdate_functions%2f
-			&title=Date%20Functions%20for%20Forecast%20Analyst&summary=to_datetime%28%29%20method&source=rafed123.github.io"
+			&title=Date%20Functions%20-%20Part%201&summary=As%20a%20forecast%20analyst%2c%20I%20am%20dealing%20with%20time%20series%20data%20every%20day.%20So%2c%20the%20first%20Python%20module%20I%20want%20to%20mention%20is%20Python%20datetime%20which%20provides%20basic%20classes%20for%20dates%20and%20time%20manipulation.%0aFor%20my%20current%20job%2c%20although%20I%20am%20helping%20several%20international%20markets%2c%20most%20of%20the%20time%20I%20don%26rsquo%3bt%20need%20to%20worry%20about%20time%20zone%20or%20dailylight%20saving%20time%2c%20etc.%20If%20you%20are%20interested%20in%20the%20datetime%20type%20that%20include%20such%20information%2c%20you%20can%20learn%20more%20about%20it%20from%20the%20documentation.&source=rafed123.github.io"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on LinkedIn. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/linkedin.png>
 	    </a>
 
-	    <a  href="mailto:?subject=Date%20Functions%20for%20Forecast%20Analyst&amp;body=Check out this site https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-forecast-analyst%2fdate_functions%2f"
+	    <a  href="mailto:?subject=Date%20Functions%20-%20Part%201&amp;body=Check out this site https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-forecast-analyst%2fdate_functions%2f"
 	        title="Share via Email. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/mail.png>
 	    </a>
