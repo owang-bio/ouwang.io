@@ -14,7 +14,7 @@
       
       <guid>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/date_functions/</guid>
       <description>As a forecast analyst, I am dealing with time series data every day. So, the first Python module I want to mention is datetime which provides basic classes for dates and time manipulation.
-For my current job, although I am helping several international markets, most of the time I don&amp;rsquo;t need to worry about time zone or daylight saving time, etc. If you are interested in the datetime type that include such information, you can learn more about it from the documentation.</description>
+I am helping several international markets with forecasting, most of the time I don&amp;rsquo;t need to worry about time zone or daylight saving time, etc. If you are interested in the datetime type that include such information, you can learn more about it from the documentation.</description>
     </item>
     
   </channel>

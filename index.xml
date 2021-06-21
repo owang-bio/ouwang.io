@@ -6,7 +6,16 @@
     <description>Recent content on Forecast Analyst&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Jun 2021 01:16:38 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Jun 2021 19:57:25 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python dateutil module</title>
+      <link>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/dateutil_module/</link>
+      <pubDate>Sun, 20 Jun 2021 19:57:25 -0600</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/dateutil_module/</guid>
+      <description>When we need to do any operations between two date/datetime objects, for example, addition or subtraction, we will need datedelta/timedelta. Unfortunately, the timedelta class included in datetime module has limited functions (in case you are interested, documentation). Python Numpy and Pandas have datedelta/timedelta objects, but I found that dateutil is more intuitive. Although dateutil has many powerful functions, I will only introduce one function that I use the most frequently.</description>
+    </item>
+    
     <item>
       <title>Introduction</title>
       <link>https://owang-bio.github.io/ouwang.io/posts/introduction/</link>
@@ -25,7 +34,7 @@ I will keep each blog as short as 3 to 5 minutes reading so if anyone would read
       
       <guid>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/date_functions/</guid>
       <description>As a forecast analyst, I am dealing with time series data every day. So, the first Python module I want to mention is datetime which provides basic classes for dates and time manipulation.
-For my current job, although I am helping several international markets, most of the time I don&amp;rsquo;t need to worry about time zone or daylight saving time, etc. If you are interested in the datetime type that include such information, you can learn more about it from the documentation.</description>
+I am helping several international markets with forecasting, most of the time I don&amp;rsquo;t need to worry about time zone or daylight saving time, etc. If you are interested in the datetime type that include such information, you can learn more about it from the documentation.</description>
     </item>
     
     <item>

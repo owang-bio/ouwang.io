@@ -27,7 +27,7 @@
 <meta itemprop="name" content="Python datetime module">
 <meta itemprop="description" content="Date functions in Python - Part 1"><meta itemprop="datePublished" content="2021-06-15T23:58:51-06:00" />
 <meta itemprop="dateModified" content="2021-06-15T23:58:51-06:00" />
-<meta itemprop="wordCount" content="520">
+<meta itemprop="wordCount" content="526">
 <meta itemprop="keywords" content="python,datetime," />
 <link rel="canonical" href="https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/date_functions/" />
 
@@ -172,8 +172,9 @@ if (!doNotTrack) {
         
 
         <p>As a forecast analyst, I am dealing with time series data every day. So, the first Python module I want to mention is datetime which provides basic classes for dates and time manipulation.</p>
-<p>For my current job, although I am helping several international markets, most of the time I don&rsquo;t need to worry about time zone or daylight saving time, etc. If you are interested in the datetime type that include such information, you can learn more about it from the <a href="https://docs.python.org/3/library/datetime.html#date-objects">documentation</a>.</p>
-<p>In this post, I will introduce several classes in this module and class methods that I use the most frequently. Then, my next post will explain the use case for some of them.</p>
+<p>I am helping several international markets with forecasting, most of the time I don&rsquo;t need to worry about time zone or daylight saving time, etc. If you are interested in the datetime type that include such information, you can learn more about it from the <a href="https://docs.python.org/3/library/datetime.html#date-objects">documentation</a>.</p>
+<p>In this post, I will introduce several basic classes and class methods in datetime module that I use the most frequently. Later, we will revisit these classes and methods in my future posts explaining how I use them in my work.</p>
+<p>&nbsp;</p>
 <p>Of course, to use this module, we first need to import it:</p>
 <pre><code>import datetime
 </code></pre><p>&nbsp;</p>
@@ -257,7 +258,7 @@ dt.strftime('%Y-%m-%d') #convert the date to string
 	    </a>
 
 		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-forecast-analyst%2fdate_functions%2f
-			&title=Python%20datetime%20module&summary=As%20a%20forecast%20analyst%2c%20I%20am%20dealing%20with%20time%20series%20data%20every%20day.%20So%2c%20the%20first%20Python%20module%20I%20want%20to%20mention%20is%20datetime%20which%20provides%20basic%20classes%20for%20dates%20and%20time%20manipulation.%0aFor%20my%20current%20job%2c%20although%20I%20am%20helping%20several%20international%20markets%2c%20most%20of%20the%20time%20I%20don%26rsquo%3bt%20need%20to%20worry%20about%20time%20zone%20or%20daylight%20saving%20time%2c%20etc.%20If%20you%20are%20interested%20in%20the%20datetime%20type%20that%20include%20such%20information%2c%20you%20can%20learn%20more%20about%20it%20from%20the%20documentation.&source=rafed123.github.io"
+			&title=Python%20datetime%20module&summary=As%20a%20forecast%20analyst%2c%20I%20am%20dealing%20with%20time%20series%20data%20every%20day.%20So%2c%20the%20first%20Python%20module%20I%20want%20to%20mention%20is%20datetime%20which%20provides%20basic%20classes%20for%20dates%20and%20time%20manipulation.%0aI%20am%20helping%20several%20international%20markets%20with%20forecasting%2c%20most%20of%20the%20time%20I%20don%26rsquo%3bt%20need%20to%20worry%20about%20time%20zone%20or%20daylight%20saving%20time%2c%20etc.%20If%20you%20are%20interested%20in%20the%20datetime%20type%20that%20include%20such%20information%2c%20you%20can%20learn%20more%20about%20it%20from%20the%20documentation.&source=rafed123.github.io"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on LinkedIn. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/linkedin.png>
