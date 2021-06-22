@@ -13,7 +13,7 @@
       <pubDate>Sun, 20 Jun 2021 19:57:25 -0600</pubDate>
       
       <guid>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/dateutil_module/</guid>
-      <description>When we need to do any operations between two date/datetime objects, for example, addition or subtraction, we will need datedelta/timedelta. Unfortunately, the timedelta class included in datetime module has limited functions (in case you are interested, documentation). Python Numpy and Pandas have datedelta/timedelta objects, but I found that dateutil is more intuitive. Although dateutil has many powerful functions, I will only introduce one function that I use the most frequently.</description>
+      <description>When we need to do any operations between two date/datetime objects, for example, addition or subtraction, we will need datedelta/timedelta. Unfortunately, the timedelta class included in datetime module has limited functions (in case you are interested: documentation). Python Numpy and Pandas have datedelta/timedelta objects, but I found that dateutil is more intuitive. Although dateutil has many powerful functions, I will only introduce one function that I use the most frequently.</description>
     </item>
     
     <item>
