@@ -33,8 +33,8 @@ I will keep each blog as short as 3 to 5 minutes reading so if anyone would read
       <pubDate>Tue, 15 Jun 2021 23:58:51 -0600</pubDate>
       
       <guid>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/date_functions/</guid>
-      <description>As a forecast analyst, I am dealing with time series data every day. So, the first Python module I want to mention is datetime which provides basic classes for dates and time manipulation.
-I am helping several international markets with forecasting, most of the time I don&amp;rsquo;t need to worry about time zone or daylight saving time, etc. If you are interested in the datetime type that include such information, you can learn more about it from the documentation.</description>
+      <description>I am dealing with time series data every day. So, the first Python module I want to mention is datetime which provides basic classes for dates and time manipulation.
+I am helping several international markets with forecasting, but most of the time I don&amp;rsquo;t need to worry about time zone or daylight saving time, etc. If you are interested in the datetime type that include such information, you can learn more about it from the documentation.</description>
     </item>
     
     <item>
@@ -43,7 +43,7 @@ I am helping several international markets with forecasting, most of the time I 
       <pubDate>Mon, 06 Apr 2020 02:07:31 +0600</pubDate>
       
       <guid>https://owang-bio.github.io/ouwang.io/author/</guid>
-      <description>I am John Doe and currently working as a forecast analyst. I have been learning data analytics every day and taking notes using Microsoft OneNote. I think it would be interesting if I make my notes public, which is why I am creating this blog. I will spend a couple of minutes everyday and write about something I have learned. Hope some of my blogs can be helpful to some of the people.</description>
+      <description>I am John Doe and currently working as a data &amp;amp; forecast analyst. I have been learning data analytics every day and taking notes using Microsoft OneNote. I think it would be interesting if I make my notes public, which is why I am creating this blog. I will spend a couple of minutes everyday and write about something I have learned every day. Hope some of my blogs can be helpful to some of the people.</description>
     </item>
     
     <item>
