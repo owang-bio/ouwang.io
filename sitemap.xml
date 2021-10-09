@@ -1,47 +1,139 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://owang-bio.github.io/ouwang.io/tags/dateutil/</loc>
-    <lastmod>2021-06-20T19:57:25-06:00</lastmod>
-  </url><url>
-    <loc>https://owang-bio.github.io/ouwang.io/</loc>
-    <lastmod>2021-06-20T19:57:25-06:00</lastmod>
-  </url><url>
-    <loc>https://owang-bio.github.io/ouwang.io/tags/python/</loc>
-    <lastmod>2021-06-20T19:57:25-06:00</lastmod>
-  </url><url>
-    <loc>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/dateutil_module/</loc>
-    <lastmod>2021-06-20T19:57:25-06:00</lastmod>
-  </url><url>
-    <loc>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/</loc>
-    <lastmod>2021-06-20T19:57:25-06:00</lastmod>
-  </url><url>
-    <loc>https://owang-bio.github.io/ouwang.io/tags/</loc>
-    <lastmod>2021-06-20T19:57:25-06:00</lastmod>
-  </url><url>
-    <loc>https://owang-bio.github.io/ouwang.io/posts/introduction/</loc>
-    <lastmod>2021-06-16T01:16:38-06:00</lastmod>
-  </url><url>
-    <loc>https://owang-bio.github.io/ouwang.io/posts/</loc>
-    <lastmod>2021-06-16T01:16:38-06:00</lastmod>
-  </url><url>
-    <loc>https://owang-bio.github.io/ouwang.io/tags/datetime/</loc>
-    <lastmod>2021-06-15T23:58:51-06:00</lastmod>
-  </url><url>
-    <loc>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/date_functions/</loc>
-    <lastmod>2021-06-15T23:58:51-06:00</lastmod>
-  </url><url>
-    <loc>https://owang-bio.github.io/ouwang.io/author/</loc>
-    <lastmod>2020-04-06T02:07:31+06:00</lastmod>
-  </url><url>
-    <loc>https://owang-bio.github.io/ouwang.io/addons/</loc>
-    <lastmod>2020-04-06T02:07:31+06:00</lastmod>
-  </url><url>
-    <loc>https://owang-bio.github.io/ouwang.io/admin/</loc>
-    <lastmod>2020-04-06T02:07:30+06:00</lastmod>
-  </url><url>
-    <loc>https://owang-bio.github.io/ouwang.io/sections/</loc>
-    <lastmod>2020-04-06T02:07:30+06:00</lastmod>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/tags/dateutil/</loc>
+	    <lastmod>2021-06-20</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/</loc>
+	    <lastmod>2021-06-20</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/tags/python/</loc>
+	    <lastmod>2021-06-20</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/dateutil_module/</loc>
+	    <lastmod>2021-06-20</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/</loc>
+	    <lastmod>2021-06-20</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/tags/</loc>
+	    <lastmod>2021-06-20</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/posts/introduction/</loc>
+	    <lastmod>2021-06-16</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/posts/</loc>
+	    <lastmod>2021-06-16</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/tags/datetime/</loc>
+	    <lastmod>2021-06-15</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/date_functions/</loc>
+	    <lastmod>2021-06-15</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/author/</loc>
+	    <lastmod>2020-04-06</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+  
+      
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/sections/</loc>
+	    <lastmod>2020-04-06</lastmod>
+        
+
+        
+	  </url>
+	  
+  
 </urlset>
