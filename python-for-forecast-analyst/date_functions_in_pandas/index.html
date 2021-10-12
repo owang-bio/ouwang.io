@@ -201,10 +201,10 @@ pd.Timestamp(&quot;2018/01/05&quot;)
 </code></pre><ol start="3">
 <li><strong>replace()</strong> will replace the date/time part, for example:</li>
 </ol>
-<pre><code>pd.Timestamp(&quot;2018/01/05&quot;).normalize().replace(month=9)
+<pre><code>pd.Timestamp(&quot;2018/01/05&quot;).replace(month=9)
 </code></pre><p>replace the month from January to September and return Timestamp(&lsquo;2018-09-05 00:00:00&rsquo;)</p>
 <pre><code>pd.Timestamp('2021-10-12 06:33:30.793655').replace(second=0)
-</code></pre><p>will replace day from 30 to 0 and return Timestamp(&lsquo;2021-10-12 06:33:00.793655&rsquo;).</p>
+</code></pre><p>will replace second from 30 to 0 and return Timestamp(&lsquo;2021-10-12 06:33:00.793655&rsquo;).</p>
 <p>&nbsp;</p>
 <h3 id="some-useful-attributes"><strong>Some Useful Attributes</strong></h3>
 <p>Same as datetime objects, dot notation will get the attributes of Timestamps for you.
