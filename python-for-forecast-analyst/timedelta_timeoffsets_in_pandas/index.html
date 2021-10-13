@@ -2,34 +2,34 @@
 <html lang="en-us">
 
 <head><title>
-    Introduction | 
+    Time Deltas and Date Offsets in Pandas | 
     
     Data Analyst&#39;s Blog</title>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="A brief introduction of this blog
+<meta name="description" content="Introduction to Pandas&#39;s Time deltas and Date offsets
     ">
 
 
-<meta property="og:title" content="Introduction" />
-<meta property="og:description" content="A brief introduction of this blog" />
+<meta property="og:title" content="Time deltas and Date offsets in Pandas" />
+<meta property="og:description" content="Introduction to Pandas&#39;s Time deltas and Date offsets" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://owang-bio.github.io/ouwang.io/posts/introduction/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-06-16T01:16:38-06:00" />
-<meta property="article:modified_time" content="2021-06-16T01:16:38-06:00" />
+<meta property="og:url" content="https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/timedelta_timeoffsets_in_pandas/" /><meta property="article:section" content="python-for-forecast-analyst" />
+<meta property="article:published_time" content="2021-10-12T23:06:19-06:00" />
+<meta property="article:modified_time" content="2021-10-12T23:06:19-06:00" />
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Introduction"/>
-<meta name="twitter:description" content="A brief introduction of this blog"/>
+<meta name="twitter:title" content="Time deltas and Date offsets in Pandas"/>
+<meta name="twitter:description" content="Introduction to Pandas&#39;s Time deltas and Date offsets"/>
 
-<meta itemprop="name" content="Introduction">
-<meta itemprop="description" content="A brief introduction of this blog"><meta itemprop="datePublished" content="2021-06-16T01:16:38-06:00" />
-<meta itemprop="dateModified" content="2021-06-16T01:16:38-06:00" />
-<meta itemprop="wordCount" content="69">
-<meta itemprop="keywords" content="" />
-<link rel="canonical" href="https://owang-bio.github.io/ouwang.io/posts/introduction/" />
+<meta itemprop="name" content="Time deltas and Date offsets in Pandas">
+<meta itemprop="description" content="Introduction to Pandas&#39;s Time deltas and Date offsets"><meta itemprop="datePublished" content="2021-10-12T23:06:19-06:00" />
+<meta itemprop="dateModified" content="2021-10-12T23:06:19-06:00" />
+<meta itemprop="wordCount" content="218">
+<meta itemprop="keywords" content="python,datetime,pandas,timedelta," />
+<link rel="canonical" href="https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/timedelta_timeoffsets_in_pandas/" />
 
 <link rel="icon" type="image/png" href="https://owang-bio.github.io/ouwang.io/image/favicon.ico">
 
@@ -132,13 +132,13 @@ if (!doNotTrack) {
         <div id="page-body" class="column is-7">
 
 <div class="content blog">
-    <h1>Introduction</h1>
+    <h1>Time Deltas and Date Offsets in Pandas</h1>
 
     <div id="infobar" class="level is-mobile">
         <div class="level-left">
             
             <div class="level-item">
-                <p class="subtitle info date">Jun 16, 2021
+                <p class="subtitle info date">Oct 12, 2021
                 </p>
             </div>
             
@@ -152,20 +152,47 @@ if (!doNotTrack) {
         <div class="level-right is-hidden-touch">
             <div class="tags">
                 
+                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/python">Python</a>
+                
+                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/datetime">Datetime</a>
+                
+                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/pandas">Pandas</a>
+                
+                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/timedelta">Timedelta</a>
+                
             </div>
         </div>
     </div>
 
     <div class="tags is-hidden-desktop">
         
+        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/python">Python</a>
+        
+        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/datetime">Datetime</a>
+        
+        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/pandas">Pandas</a>
+        
+        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/timedelta">Timedelta</a>
+        
     </div>
 
     <div class="blog-text">
         
 
-        <p>This is my GitHub page where I post things that might be helpful for data analysts who regularly use Python and Excel.</p>
-<p>The content will focus on specific functions or libraries in Python that are commonly used in my daily work.</p>
-<p>I will keep each blog as short as 1 to 3 minutes reading so that if anyone would read it, they don&rsquo;t get bored before finishing reading. :-)</p>
+        <p>Pandas&rsquo;s Timedelta represents the difference between two Timestamps, but there is a little difference from the dateutil.relativedelta that I introduced in another post, which is equivalent to the Dateoffsets in Pandas. I was once confused about Pandas&rsquo;s Timedelta and Dateoffsets, so I decided to write a post about them today.</p>
+<p>Timedelta and Dateoffsets are almost the same when time zone information is not provided. When time zone is provided, one difference is that Timedelta of one day adds 24 hours to a Timestamp, while DateOffset of one day adds a day to a Timestamp. There will be difference when daylight saving is taken into consideration.</p>
+<p>I am using an example to show you the difference.
+pd.Timedelta(days=1) add 24 hours to a Timestamp:</p>
+<pre><code>pd.Timestamp(&quot;2021/11/07&quot;, tz = 'US/Central') + pd.Timedelta(days=1)
+</code></pre><p>will return</p>
+<pre><code>Timestamp('2021-11-07 23:00:00-0600', tz='US/Central')
+</code></pre><p>because daylight saving ends on 2021-11-07, and there are 25 hours in that day. So the date is not changed even though 24 hours were added to it.</p>
+<p>While pd.DateOffset(days=1) add a full day to a Timestamp, no matter how many hours are there in that day:</p>
+<pre><code>pd.Timestamp(&quot;2021/11/07&quot;, tz = 'US/Central') + pd.DateOffset(days=1)
+</code></pre><p>returns</p>
+<pre><code>Timestamp('2021-11-08 00:00:00-0600', tz='US/Central')
+</code></pre><p>and it gives you the date of one day after at the same time.</p>
+<p>When the difference is less than an hour, Timedelta and DateOffset are the same.</p>
 
     </div>
 </div><div id="social-media-share" class="has-text-centered">
@@ -173,44 +200,44 @@ if (!doNotTrack) {
 	<br>
 	
 	<div class="share-buttons">
-	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fposts%2fintroduction%2f"
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-forecast-analyst%2ftimedelta_timeoffsets_in_pandas%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Facebook. Opens in a new window.">
 	        <img src=/ouwang.io/img/icons/45px/facebook.png>
 	    </a>
 
-	    <a  href="https://twitter.com/intent/tweet?text=Introduction&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fposts%2fintroduction%2f"
+	    <a  href="https://twitter.com/intent/tweet?text=Time%20deltas%20and%20Date%20offsets%20in%20Pandas&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-forecast-analyst%2ftimedelta_timeoffsets_in_pandas%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Twitter. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/twitter.png>
 	    </a>
 
-		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fposts%2fintroduction%2f"
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-forecast-analyst%2ftimedelta_timeoffsets_in_pandas%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Reddit. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/reddit.png>
 	    </a>
 
-	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fposts%2fintroduction%2f"
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-forecast-analyst%2ftimedelta_timeoffsets_in_pandas%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Pinterest. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/pinterest.png>
 	    </a>
 
-	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fposts%2fintroduction%2f"
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-forecast-analyst%2ftimedelta_timeoffsets_in_pandas%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Tumblr. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/tumblr.png>
 	    </a>
 
-		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fposts%2fintroduction%2f
-			&title=Introduction&summary=This%20is%20my%20GitHub%20page%20where%20I%20post%20things%20that%20might%20be%20helpful%20for%20data%20analysts%20who%20regularly%20use%20Python%20and%20Excel.%0aThe%20content%20will%20focus%20on%20specific%20functions%20or%20libraries%20in%20Python%20that%20are%20commonly%20used%20in%20my%20daily%20work.%0aI%20will%20keep%20each%20blog%20as%20short%20as%201%20to%203%20minutes%20reading%20so%20that%20if%20anyone%20would%20read%20it%2c%20they%20don%26rsquo%3bt%20get%20bored%20before%20finishing%20reading.%20%3a-%29&source=rafed123.github.io"
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-forecast-analyst%2ftimedelta_timeoffsets_in_pandas%2f
+			&title=Time%20deltas%20and%20Date%20offsets%20in%20Pandas&summary=Pandas%26rsquo%3bs%20Timedelta%20represents%20the%20difference%20between%20two%20Timestamps%2c%20but%20there%20is%20a%20little%20difference%20from%20the%20dateutil.relativedelta%20that%20I%20introduced%20in%20another%20post%2c%20which%20is%20equivalent%20to%20the%20Dateoffsets%20in%20Pandas.%20I%20was%20once%20confused%20about%20Pandas%26rsquo%3bs%20Timedelta%20and%20Dateoffsets%2c%20so%20I%20decided%20to%20write%20a%20post%20about%20them%20today.%0aTimedelta%20and%20Dateoffsets%20are%20almost%20the%20same%20when%20time%20zone%20information%20is%20not%20provided.%20When%20time%20zone%20is%20provided%2c%20one%20difference%20is%20that%20Timedelta%20of%20one%20day%20adds%2024%20hours%20to%20a%20Timestamp%2c%20while%20DateOffset%20of%20one%20day%20adds%20a%20day%20to%20a%20Timestamp.&source=rafed123.github.io"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on LinkedIn. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/linkedin.png>
 	    </a>
 
-	    <a  href="mailto:?subject=Introduction&amp;body=Check out this site https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fposts%2fintroduction%2f"
+	    <a  href="mailto:?subject=Time%20deltas%20and%20Date%20offsets%20in%20Pandas&amp;body=Check out this site https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-forecast-analyst%2ftimedelta_timeoffsets_in_pandas%2f"
 	        title="Share via Email. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/mail.png>
 	    </a>
