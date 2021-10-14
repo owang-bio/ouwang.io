@@ -6,7 +6,18 @@
     <description>Recent content on Data Analyst&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 Oct 2021 23:06:19 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 Oct 2021 22:45:50 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Date to beginning of Month</title>
+      <link>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/change_dates_to_first_day/</link>
+      <pubDate>Wed, 13 Oct 2021 22:45:50 -0600</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/change_dates_to_first_day/</guid>
+      <description>Pandas.Timestamp.replace(day=1) can change a single Timestamp to the beginning of a month. But when we have a Series of date or a date column, this method will no longer work. I have to do do this every once in a while. I have used several methods, and I am summarizing them in this post.
+First let me create a small Pandas&amp;rsquo;s DataFrame containing a column of dates:
+   ID Dates     1 2021-01-23 14:05:21   2 2021-02-05 05:07:30   3 2021-02-18 17:08:51   4 2021-01-01 05:07:30   5 2021-01-31 05:07:30    Method 1.</description>
+    </item>
+    
     <item>
       <title>Time deltas and Date offsets in Pandas</title>
       <link>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/timedelta_timeoffsets_in_pandas/</link>
@@ -44,9 +55,10 @@ pd.Timestamp(&amp;quot;today&amp;quot;) Using key word arguments will also work,
       <pubDate>Wed, 16 Jun 2021 01:16:38 -0600</pubDate>
       
       <guid>https://owang-bio.github.io/ouwang.io/posts/introduction/</guid>
-      <description>This is my GitHub page where I post things that might be helpful for data analysts who regularly use Python and Excel.
-The content will focus on specific functions or libraries in Python that are commonly used in my daily work.
-I will keep each blog as short as 1 to 3 minutes reading so that if anyone would read it, they don&amp;rsquo;t get bored before finishing reading. :-)</description>
+      <description>This is my GitHub page where I post things that might be helpful for data analysts who want to learn some Python.
+The content will focus on specific functions or libraries in Python that I am using in my daily work.
+I will keep each blog as short as 1 to 3 minutes reading so that if anyone would read it, they don&amp;rsquo;t get bored before finishing reading. :-)
+My self-introduction can be found on this page.</description>
     </item>
     
     <item>
