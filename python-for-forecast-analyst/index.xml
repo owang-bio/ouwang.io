@@ -6,7 +6,18 @@
     <description>Recent content in Python-for-forecast-analyst on Data Analyst&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 Oct 2021 22:45:50 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Oct 2021 23:27:22 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Change Dates to Last Day</title>
+      <link>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/change_dates_to_last_day/</link>
+      <pubDate>Mon, 18 Oct 2021 23:27:22 -0600</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/change_dates_to_last_day/</guid>
+      <description>Occasionally, I need to convert a series/column of dates to the last day of the same month. This post will introduce two methods that I have used.
+First let me create a small Pandas&amp;rsquo;s DataFrame (saved as date_df variable) containing a column of dates:
+   ID Dates     1 2021-01-23 14:05:21   2 2021-02-05 05:07:30   3 2021-02-18 17:08:51   4 2021-01-01 05:07:30   5 2021-01-31 05:07:30    Method 1.</description>
+    </item>
+    
     <item>
       <title>Date to beginning of Month</title>
       <link>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/change_dates_to_first_day/</link>
