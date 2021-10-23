@@ -3,19 +3,8 @@
       
       
 	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/change_dates_to_last_day/</loc>
-	    <lastmod>2021-10-18</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
 	    <loc>https://owang-bio.github.io/ouwang.io/</loc>
-	    <lastmod>2021-10-18</lastmod>
+	    <lastmod>2021-10-22</lastmod>
         
 
         
@@ -26,6 +15,72 @@
       
 	  <url>
 	    <loc>https://owang-bio.github.io/ouwang.io/tags/datetime/</loc>
+	    <lastmod>2021-10-22</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_time_span/</loc>
+	    <lastmod>2021-10-22</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/tags/period/</loc>
+	    <lastmod>2021-10-22</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/tags/python/</loc>
+	    <lastmod>2021-10-22</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/</loc>
+	    <lastmod>2021-10-22</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/tags/</loc>
+	    <lastmod>2021-10-22</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/change_dates_to_last_day/</loc>
 	    <lastmod>2021-10-18</lastmod>
         
 
@@ -47,40 +102,7 @@
       
       
 	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/tags/python/</loc>
-	    <lastmod>2021-10-18</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/</loc>
-	    <lastmod>2021-10-18</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/tags/</loc>
-	    <lastmod>2021-10-18</lastmod>
-        
-
-        
-	  </url>
-	  
-  
-      
-      
-	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/change_dates_to_first_day/</loc>
+	    <loc>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/change_dates_to_first_day/</loc>
 	    <lastmod>2021-10-13</lastmod>
         
 
@@ -91,7 +113,7 @@
       
       
 	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/timedelta_timeoffsets_in_pandas/</loc>
+	    <loc>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/timedelta_timeoffsets_in_pandas/</loc>
 	    <lastmod>2021-10-12</lastmod>
         
 
@@ -113,7 +135,7 @@
       
       
 	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/timestamp_in_pandas/</loc>
+	    <loc>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/timestamp_in_pandas/</loc>
 	    <lastmod>2021-10-09</lastmod>
         
 
@@ -124,7 +146,7 @@
       
       
 	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/dateutil_module/</loc>
+	    <loc>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/dateutil_module/</loc>
 	    <lastmod>2021-06-20</lastmod>
         
 
@@ -157,7 +179,7 @@
       
       
 	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/date_functions/</loc>
+	    <loc>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/date_functions/</loc>
 	    <lastmod>2021-06-15</lastmod>
         
 

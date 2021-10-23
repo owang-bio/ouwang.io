@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Data Analyst&#39;s Blog</title>
-    <link>https://owang-bio.github.io/ouwang.io/</link>
-    <description>Recent content on Data Analyst&#39;s Blog</description>
+    <title>Python-for-data-analyst on Data Analyst&#39;s Blog</title>
+    <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/</link>
+    <description>Recent content in Python-for-data-analyst on Data Analyst&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 22 Oct 2021 00:50:03 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Oct 2021 00:50:03 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pandas Time Span</title>
       <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_time_span/</link>
@@ -72,18 +72,6 @@ pd.Timestamp(&amp;quot;today&amp;quot;) Using key word arguments will also work,
     </item>
     
     <item>
-      <title>Introduction</title>
-      <link>https://owang-bio.github.io/ouwang.io/posts/introduction/</link>
-      <pubDate>Wed, 16 Jun 2021 01:16:38 -0600</pubDate>
-      
-      <guid>https://owang-bio.github.io/ouwang.io/posts/introduction/</guid>
-      <description>This is my GitHub page where I post things that might be helpful for data analysts who want to learn some Python.
-The content will focus on specific functions or libraries in Python that I am using in my daily work.
-I will keep each blog as short as 1 to 3 minutes reading so that if anyone would read it, they don&amp;rsquo;t get bored before finishing reading. :-)
-My self-introduction can be found on this page.</description>
-    </item>
-    
-    <item>
       <title>Python datetime module</title>
       <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/date_functions/</link>
       <pubDate>Tue, 15 Jun 2021 23:58:51 -0600</pubDate>
@@ -91,33 +79,6 @@ My self-introduction can be found on this page.</description>
       <guid>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/date_functions/</guid>
       <description>I am dealing with time series data every day. So, the first Python module I want to mention is datetime which provides basic classes for dates and time manipulation.
 I am helping several international markets with forecasting, but most of the time I don&amp;rsquo;t need to worry about time zone or daylight saving time, etc. If you are interested in the datetime type that include such information, you can learn more about it from the documentation.</description>
-    </item>
-    
-    <item>
-      <title>About Author</title>
-      <link>https://owang-bio.github.io/ouwang.io/author/</link>
-      <pubDate>Mon, 06 Apr 2020 02:07:31 +0600</pubDate>
-      
-      <guid>https://owang-bio.github.io/ouwang.io/author/</guid>
-      <description>I am John Doe and currently working as a data &amp;amp; forecast analyst. I have been learning data analytics every day and taking notes using Microsoft OneNote. I think it would be interesting if I make my notes public, which is why I am creating this blog. I will spend a couple of minutes everyday and write about something I have learned every day. Hope some of my blogs can be helpful to some of the data people.</description>
-    </item>
-    
-    <item>
-      <title>Admin Panel</title>
-      <link>https://owang-bio.github.io/ouwang.io/admin/</link>
-      <pubDate>Mon, 06 Apr 2020 02:07:30 +0600</pubDate>
-      
-      <guid>https://owang-bio.github.io/ouwang.io/admin/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>All Sections</title>
-      <link>https://owang-bio.github.io/ouwang.io/sections/</link>
-      <pubDate>Mon, 06 Apr 2020 02:07:30 +0600</pubDate>
-      
-      <guid>https://owang-bio.github.io/ouwang.io/sections/</guid>
-      <description></description>
     </item>
     
   </channel>

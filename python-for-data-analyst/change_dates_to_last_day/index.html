@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><title>
+    Date to End of a Month | 
+    
+    Data Analyst&#39;s Blog</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Change a Pandas Series of dates to the last day of each month
+    ">
+
+
+<meta property="og:title" content="Date to End of a Month" />
+<meta property="og:description" content="Change a Pandas Series of dates to the last day of each month" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/change_dates_to_last_day/" /><meta property="article:section" content="python-for-data-analyst" />
+<meta property="article:published_time" content="2021-10-18T23:27:22-06:00" />
+<meta property="article:modified_time" content="2021-10-18T23:27:22-06:00" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Date to End of a Month"/>
+<meta name="twitter:description" content="Change a Pandas Series of dates to the last day of each month"/>
+
+<meta itemprop="name" content="Date to End of a Month">
+<meta itemprop="description" content="Change a Pandas Series of dates to the last day of each month"><meta itemprop="datePublished" content="2021-10-18T23:27:22-06:00" />
+<meta itemprop="dateModified" content="2021-10-18T23:27:22-06:00" />
+<meta itemprop="wordCount" content="266">
+<meta itemprop="keywords" content="python,pandas,datetime," />
+<link rel="canonical" href="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/change_dates_to_last_day/" />
+
+<link rel="icon" type="image/png" href="https://owang-bio.github.io/ouwang.io/image/favicon.ico">
+
+<link rel="stylesheet" href="/ouwang.io/css/font-awesome.min.css">
+<link rel="stylesheet" href="/ouwang.io/css/bulma.min.css">
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<script src=/ouwang.io/js/ramium.js></script>
+<link rel="stylesheet" href=/ouwang.io/css/ramium.css>
+
+
+
+
+
+</head>
+
+<body><nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href=/ouwang.io/>
+      
+      <strong>Data Analyst&#39;s Blog </strong>
+      
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      
+      
+      <a class="navbar-item" href="/ouwang.io/">Home</a>
+      
+      
+      
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">This Blog</a>
+        <div class="navbar-dropdown">
+          
+          <a class="navbar-item" href="/ouwang.io/tags/">All Tags</a>
+          
+          <a class="navbar-item" href="/ouwang.io/sections/">All Sections</a>
+          
+          <a class="navbar-item" href="/ouwang.io/posts/">All Posts</a>
+          
+        </div>
+      </div>
+      
+      
+      
+      <a class="navbar-item" href="/ouwang.io/author/">Author</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      
+
+      
+      <div class="navbar-item">
+        <form id="cse-search-box-form-id" onsubmit="return executeQuery();" role="search">
+          <div class="field has-addons">
+            <div class="control is-expanded">
+              <input id="cse-search-input-box-id" size=15 class="input" type="text" autocomplete="off"
+                placeholder="&#xf1a0; Google search" style="font-family:Arial, FontAwesome">
+            </div>
+
+            <div class="control">
+              <button type="submit" class="button is-black">
+                <i class="fa fa-search"></i>
+                </a>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</nav><div class="columns is-centered">
+        <div id="page-body" class="column is-7">
+
+<div class="content blog">
+    <h1>Date to End of a Month</h1>
+
+    <div id="infobar" class="level is-mobile">
+        <div class="level-left">
+            
+            <div class="level-item">
+                <p class="subtitle info date">Oct 18, 2021
+                </p>
+            </div>
+            
+
+            <div class="level-item">
+                <p class="subtitle info">
+                    1 min read
+                </p>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            <div class="tags">
+                
+                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/python">Python</a>
+                
+                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/pandas">Pandas</a>
+                
+                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/datetime">Datetime</a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="tags is-hidden-desktop">
+        
+        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/python">Python</a>
+        
+        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/pandas">Pandas</a>
+        
+        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/datetime">Datetime</a>
+        
+    </div>
+
+    <div class="blog-text">
+        
+
+        <p>Occasionally, I need to convert a series/column of dates to the last day of the same month. This post will introduce two methods that I have used.</p>
+<p>First let me create a small Pandas&rsquo;s DataFrame (saved as date_df variable) containing a column of dates:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">ID</th>
+<th style="text-align:left">Dates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2021-01-23 14:05:21</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">2021-02-05 05:07:30</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left">2021-02-18 17:08:51</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left">2021-01-01 05:07:30</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left">2021-01-31 05:07:30</td>
+</tr>
+</tbody>
+</table>
+<h3 id="method-1-pdtseriesoffsetsmonthend"><strong>Method 1. pd.tseries.offsets.MonthEnd()</strong></h3>
+<p>pd.tseries.offsets.MonthEnd() works in most of cases, for example:</p>
+<pre><code>pd.Timestamp('2021-09-01') + pd.tseries.offsets.MonthEnd()
+</code></pre><p>will return:</p>
+<pre><code>Timestamp('2021-09-30 00:00:00')
+</code></pre><p>However, it does not work well if the date is already the last day, for example:</p>
+<pre><code>pd.Timestamp('2021-09-30') + pd.tseries.offsets.MonthEnd()
+</code></pre><p>will return the last day of next month:</p>
+<pre><code>Timestamp('2021-10-31 00:00:00')
+</code></pre><p>We can solve this issue with a helper function with a test using pandas Timestamp&rsquo;s attribute &ldquo;is_month_end&rdquo;:</p>
+<pre><code>to_end = lambda x: x if x.is_month_end else x + pd.tseries.offsets.MonthEnd()
+</code></pre><p>now if you call &ldquo;to_end&rdquo; on a Timestamp, it will return correct wanted results:</p>
+<pre><code>to_end(pd.Timestamp('2021-09-03'))
+</code></pre><pre><code>Timestamp('2021-09-30 00:00:00')
+</code></pre><p>You can use DataFrame.apply() to apply this function to all the rows, but the performance will be bad if the it is a large dataset. I would not use it if I have more than 10,000 rows in the dataset. For larger dataset, Pandas.where() will perform better:</p>
+<pre><code>date_df['Dates'].where(
+    date_df['Dates'].dt.is_month_end
+    , date_df['Dates'] + pd.tseries.offsets.MonthEnd()
+    )
+</code></pre><h3 id="method-2-change-to-pandass-datetime-span-and-change-it-back-to-timestamp"><strong>Method 2. Change to Pandas&rsquo;s datetime Span and change it back to Timestamp</strong></h3>
+<pre><code>(
+    date_df['Dates'].dt.to_period('M')
+        .dt.to_timestamp('M')
+)
+</code></pre><p>to_period(&lsquo;M&rsquo;) will first convert the date column to month span and then to_timestamp(&lsquo;M&rsquo;) will convert the date to the last day of each month.</p>
+<p>One thing worth noting is that to_timestamp(&lsquo;ms&rsquo;) will convert each date to the first day of each month.</p>
+
+    </div>
+</div><div id="social-media-share" class="has-text-centered">
+	<p><i>Sharing is caring!</i></p>
+	<br>
+	
+	<div class="share-buttons">
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fchange_dates_to_last_day%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Facebook. Opens in a new window.">
+	        <img src=/ouwang.io/img/icons/45px/facebook.png>
+	    </a>
+
+	    <a  href="https://twitter.com/intent/tweet?text=Date%20to%20End%20of%20a%20Month&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fchange_dates_to_last_day%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Twitter. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/twitter.png>
+	    </a>
+
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fchange_dates_to_last_day%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Reddit. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/reddit.png>
+	    </a>
+
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fchange_dates_to_last_day%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Pinterest. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/pinterest.png>
+	    </a>
+
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fchange_dates_to_last_day%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Tumblr. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/tumblr.png>
+	    </a>
+
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fchange_dates_to_last_day%2f
+			&title=Date%20to%20End%20of%20a%20Month&summary=Occasionally%2c%20I%20need%20to%20convert%20a%20series%2fcolumn%20of%20dates%20to%20the%20last%20day%20of%20the%20same%20month.%20This%20post%20will%20introduce%20two%20methods%20that%20I%20have%20used.%0aFirst%20let%20me%20create%20a%20small%20Pandas%26rsquo%3bs%20DataFrame%20%28saved%20as%20date_df%20variable%29%20containing%20a%20column%20of%20dates%3a%0a%20%20%20ID%20Dates%20%20%20%20%201%202021-01-23%2014%3a05%3a21%20%20%202%202021-02-05%2005%3a07%3a30%20%20%203%202021-02-18%2017%3a08%3a51%20%20%204%202021-01-01%2005%3a07%3a30%20%20%205%202021-01-31%2005%3a07%3a30%20%20%20%20Method%201.&source=rafed123.github.io"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on LinkedIn. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/linkedin.png>
+	    </a>
+
+	    <a  href="mailto:?subject=Date%20to%20End%20of%20a%20Month&amp;body=Check out this site https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fchange_dates_to_last_day%2f"
+	        title="Share via Email. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/mail.png>
+	    </a>
+	</div>
+</div>
+
+
+<br>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    (function () {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = '';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+    </div>
+<script async src="https://cse.google.com/cse.js?cx=google-search-code"></script>
+<gcse:searchresults-only></gcse:searchresults-only>
+
+
+<footer class="footer has-background-dark">
+    <div class="content has-text-centered has-text-white">
+        <p>
+            © Ou. Powered by
+            <a class="has-text-light" href="https://github.com/gohugoio/hugo" target="_blank">
+            Hugo</a>. Theme
+            <a class="has-text-light" href="https://github.com/rafed123/ramium/" target="_blank">
+                Ramium.
+            </a>
+        </p>
+    </div>
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>period on Data Analyst&#39;s Blog</title>
+    <link>https://owang-bio.github.io/ouwang.io/tags/period/</link>
+    <description>Recent content in period on Data Analyst&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 22 Oct 2021 00:50:03 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/tags/period/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pandas Time Span</title>
+      <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_time_span/</link>
+      <pubDate>Fri, 22 Oct 2021 00:50:03 -0600</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_time_span/</guid>
+      <description>Pandas time span represents a period of time, for example, one day, one month, or one year&amp;hellip; It is also called period object. I do not use time span object very often, but it is one of four pandas objects related to datetime. So, I am writing a very brief introduction for time span.
+To create a time span object, we can use Period() method:
+pd.Period() The keyword argument freq specify the span of the time.</description>
+    </item>
+    
+  </channel>
+</rss>

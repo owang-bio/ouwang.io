@@ -9,20 +9,20 @@
     <lastBuildDate>Tue, 12 Oct 2021 23:06:19 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/tags/timedelta/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Time deltas and Date offsets in Pandas</title>
-      <link>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/timedelta_timeoffsets_in_pandas/</link>
+      <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/timedelta_timeoffsets_in_pandas/</link>
       <pubDate>Tue, 12 Oct 2021 23:06:19 -0600</pubDate>
       
-      <guid>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/timedelta_timeoffsets_in_pandas/</guid>
+      <guid>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/timedelta_timeoffsets_in_pandas/</guid>
       <description>Pandas&amp;rsquo;s Timedelta represents the difference between two Timestamps, but there is a little difference from the dateutil.relativedelta that I introduced in another post, which is equivalent to the Dateoffsets in Pandas. I was once confused about Pandas&amp;rsquo;s Timedelta and Dateoffsets, so I decided to write a post about them today.
 Timedelta and Dateoffsets are almost the same when time zone information is not provided. When time zone is provided, one difference is that Timedelta of one day adds 24 hours to a Timestamp, while DateOffset of one day adds a day to a Timestamp.</description>
     </item>
     
     <item>
       <title>Python dateutil module</title>
-      <link>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/dateutil_module/</link>
+      <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/dateutil_module/</link>
       <pubDate>Sun, 20 Jun 2021 19:57:25 -0600</pubDate>
       
-      <guid>https://owang-bio.github.io/ouwang.io/python-for-forecast-analyst/dateutil_module/</guid>
+      <guid>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/dateutil_module/</guid>
       <description>When we need to do any operations between two date/datetime objects, for example, addition or subtraction, we will need datedelta/timedelta. Unfortunately, the timedelta class included in datetime module has limited functions (in case you are interested: documentation). Python Numpy and Pandas have datedelta/timedelta objects, but if we are dealing with single datetime object, I found that dateutil is more intuitive. Although dateutil has many powerful functions, I will only introduce one function, the relativedelta(), which I use the most frequently.</description>
     </item>
     
