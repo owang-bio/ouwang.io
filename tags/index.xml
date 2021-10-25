@@ -6,13 +6,31 @@
     <description>Recent content in Tags on Data Analyst&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 22 Oct 2021 00:50:03 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Oct 2021 00:50:45 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>datetime</title>
       <link>https://owang-bio.github.io/ouwang.io/tags/datetime/</link>
-      <pubDate>Fri, 22 Oct 2021 00:50:03 -0600</pubDate>
+      <pubDate>Sun, 24 Oct 2021 00:50:45 -0600</pubDate>
       
       <guid>https://owang-bio.github.io/ouwang.io/tags/datetime/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pandas</title>
+      <link>https://owang-bio.github.io/ouwang.io/tags/pandas/</link>
+      <pubDate>Sun, 24 Oct 2021 00:50:45 -0600</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/tags/pandas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://owang-bio.github.io/ouwang.io/tags/python/</link>
+      <pubDate>Sun, 24 Oct 2021 00:50:45 -0600</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/tags/python/</guid>
       <description></description>
     </item>
     
@@ -22,24 +40,6 @@
       <pubDate>Fri, 22 Oct 2021 00:50:03 -0600</pubDate>
       
       <guid>https://owang-bio.github.io/ouwang.io/tags/period/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://owang-bio.github.io/ouwang.io/tags/python/</link>
-      <pubDate>Fri, 22 Oct 2021 00:50:03 -0600</pubDate>
-      
-      <guid>https://owang-bio.github.io/ouwang.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pandas</title>
-      <link>https://owang-bio.github.io/ouwang.io/tags/pandas/</link>
-      <pubDate>Mon, 18 Oct 2021 23:27:22 -0600</pubDate>
-      
-      <guid>https://owang-bio.github.io/ouwang.io/tags/pandas/</guid>
       <description></description>
     </item>
     

@@ -2,34 +2,34 @@
 <html lang="en-us">
 
 <head><title>
-    Pandas Time Span | 
+    Pandas Datetime Resampling | 
     
     Data Analyst&#39;s Blog</title>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Time span objects in Pandas
+<meta name="description" content="Basics of Datetime Resampling in Pandas
     ">
 
 
-<meta property="og:title" content="Pandas Time Span" />
-<meta property="og:description" content="Time span objects in Pandas" />
+<meta property="og:title" content="Pandas Datetime Resampling" />
+<meta property="og:description" content="Basics of Datetime Resampling in Pandas" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_time_span/" /><meta property="article:section" content="python-for-data-analyst" />
-<meta property="article:published_time" content="2021-10-22T00:50:03-06:00" />
-<meta property="article:modified_time" content="2021-10-22T00:50:03-06:00" />
+<meta property="og:url" content="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_datetime_resampling/" /><meta property="article:section" content="python-for-data-analyst" />
+<meta property="article:published_time" content="2021-10-24T00:50:45-06:00" />
+<meta property="article:modified_time" content="2021-10-24T00:50:45-06:00" />
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Pandas Time Span"/>
-<meta name="twitter:description" content="Time span objects in Pandas"/>
+<meta name="twitter:title" content="Pandas Datetime Resampling"/>
+<meta name="twitter:description" content="Basics of Datetime Resampling in Pandas"/>
 
-<meta itemprop="name" content="Pandas Time Span">
-<meta itemprop="description" content="Time span objects in Pandas"><meta itemprop="datePublished" content="2021-10-22T00:50:03-06:00" />
-<meta itemprop="dateModified" content="2021-10-22T00:50:03-06:00" />
-<meta itemprop="wordCount" content="283">
-<meta itemprop="keywords" content="Python,pandas,datetime,period," />
-<link rel="canonical" href="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_time_span/" />
+<meta itemprop="name" content="Pandas Datetime Resampling">
+<meta itemprop="description" content="Basics of Datetime Resampling in Pandas"><meta itemprop="datePublished" content="2021-10-24T00:50:45-06:00" />
+<meta itemprop="dateModified" content="2021-10-24T00:50:45-06:00" />
+<meta itemprop="wordCount" content="345">
+<meta itemprop="keywords" content="Python,pandas,datetime," />
+<link rel="canonical" href="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_datetime_resampling/" />
 
 <link rel="icon" type="image/png" href="https://owang-bio.github.io/ouwang.io/image/favicon.ico">
 
@@ -132,13 +132,13 @@ if (!doNotTrack) {
         <div id="page-body" class="column is-7">
 
 <div class="content blog">
-    <h1>Pandas Time Span</h1>
+    <h1>Pandas Datetime Resampling</h1>
 
     <div id="infobar" class="level is-mobile">
         <div class="level-left">
             
             <div class="level-item">
-                <p class="subtitle info date">Oct 22, 2021
+                <p class="subtitle info date">Oct 24, 2021
                 </p>
             </div>
             
@@ -158,8 +158,6 @@ if (!doNotTrack) {
                 
                 <a class="tag is-dark is-rounded" href="/ouwang.io/tags/datetime">Datetime</a>
                 
-                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/period">Period</a>
-                
             </div>
         </div>
     </div>
@@ -172,22 +170,65 @@ if (!doNotTrack) {
         
         <a class="tag is-dark is-rounded" href="/ouwang.io/tags/datetime">Datetime</a>
         
-        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/period">Period</a>
-        
     </div>
 
     <div class="blog-text">
         
 
-        <p>Pandas time span represents a period of time, for example, one day, one month, or one year&hellip; It is also called period object. I do not use time span object very often, but it is one of four pandas objects related to datetime. So, I am writing a very brief introduction for time span.</p>
-<p>To create a time span object, we can use Period() method:</p>
-<pre><code>pd.Period()
-</code></pre><p>The keyword argument <strong>freq</strong> specify the span of the time. A list of valid input for <strong>freq</strong> argument can be find <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#offset-aliases">here</a>, which are called Offset aliases. Not sure why Pandas documentation for time span did not mention that <strong>freq</strong> takes offset aliases. I think it might be helpful to go through the list of the Offset aliases if you are going to deal with Pandas time span.</p>
-<p>Pandas can infer the time span if freq argument is not provided. For example:</p>
-<pre><code>pd.Period('2021')
-</code></pre><p>will return a Period(&lsquo;2021&rsquo;, &lsquo;A-DEC&rsquo;) object with frequency of 1 year (&lsquo;A-DEC&rsquo; just indicates that it is year time span, and the month is December). Time span has some unique attributes, compared with Pandas Timestamp. For example &lsquo;start_time&rsquo; and &lsquo;end_time&rsquo; will return the start and end of the time span, respectively.</p>
-<p>Timestamp objects have to_period() method to convert Timestampe into time span, and time span&rsquo;s method to_period() will convert a time span into Timestamp. The asfreq() method can change the frequency of a time span object.</p>
-<p>A use case of time span is to aggregate the data into different frequency, when the index is not datetime. For example, from daily values into monthly or annually values. That can also be done with Pandas resample() method, and I will have a separated post about it.</p>
+        <p>Resampling in Pandas is a very convenient method to &ldquo;aggregate&rdquo; your data based on specific time interval. It works like groupby in Pandas (or GROUP BY in SQL), but it offers more flexibility. For example, the groupby method in Pandas only aggregate data based on the attributes included in a column. But resampling for datetime can &ldquo;aggregate&rdquo; data based on any user defined time interval. It might be easier to demonstrate with an example: given a Pandas DataFrame (df) of:</p>
+<pre><code>2021-01-01 00:00:00    0
+2021-01-01 00:05:00    1
+2021-01-01 00:10:00    2
+2021-01-01 00:15:00    3
+2021-01-01 00:20:00    4
+2021-01-01 00:25:00    5
+2021-01-01 00:30:00    6
+2021-01-01 00:35:00    7
+2021-01-01 00:40:00    8
+2021-01-01 00:45:00    9
+Freq: 5T, Name: value, dtype: int64
+</code></pre><p>As shown, the frequency (time interval) is 5 minutes (&ldquo;5T&rdquo;, refer to <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#offset-aliases">Offset aliases</a>).</p>
+<p>If we want the sum of the value for every 100 seconds, we can resample it as:</p>
+<pre><code>df.resample('100S').sum()
+</code></pre><p>which will return:</p>
+<pre><code>2021-01-01 00:00:00    0
+2021-01-01 00:01:40    0
+2021-01-01 00:03:20    0
+2021-01-01 00:05:00    1
+2021-01-01 00:06:40    0
+2021-01-01 00:08:20    0
+2021-01-01 00:10:00    2
+2021-01-01 00:11:40    0
+2021-01-01 00:13:20    0
+2021-01-01 00:15:00    3
+2021-01-01 00:16:40    0
+2021-01-01 00:18:20    0
+2021-01-01 00:20:00    4
+2021-01-01 00:21:40    0
+2021-01-01 00:23:20    0
+2021-01-01 00:25:00    5
+2021-01-01 00:26:40    0
+2021-01-01 00:28:20    0
+2021-01-01 00:30:00    6
+2021-01-01 00:31:40    0
+2021-01-01 00:33:20    0
+2021-01-01 00:35:00    7
+2021-01-01 00:36:40    0
+2021-01-01 00:38:20    0
+2021-01-01 00:40:00    8
+2021-01-01 00:41:40    0
+2021-01-01 00:43:20    0
+2021-01-01 00:45:00    9
+Freq: 100S, Name: value, dtype: int64
+</code></pre><p>Notices that some of the Timestamps in the result dataset do not exist in the original dataset. This is not exactly aggregation, but on the contrary the grain of the data become smaller (from 5 minutes to 100 seconds). This is why I had the double quotation marks for the &ldquo;aggregation&rdquo; before.</p>
+<p>More often, I use resample() to aggregate data, for example:</p>
+<pre><code>ts.resample('20T').sum()
+</code></pre><p>will return sum of value for every 20 minutes:</p>
+<pre><code>2021-01-01 00:00:00     6
+2021-01-01 00:20:00    22
+2021-01-01 00:40:00    17
+Freq: 20T, Name: value, dtype: int64
+</code></pre><p>One thing to remember: to use resample() with Pandas dataframe/Series, the index needs to be datetime Index.</p>
 
     </div>
 </div><div id="social-media-share" class="has-text-centered">
@@ -195,44 +236,44 @@ if (!doNotTrack) {
 	<br>
 	
 	<div class="share-buttons">
-	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_time_span%2f"
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_datetime_resampling%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Facebook. Opens in a new window.">
 	        <img src=/ouwang.io/img/icons/45px/facebook.png>
 	    </a>
 
-	    <a  href="https://twitter.com/intent/tweet?text=Pandas%20Time%20Span&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_time_span%2f"
+	    <a  href="https://twitter.com/intent/tweet?text=Pandas%20Datetime%20Resampling&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_datetime_resampling%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Twitter. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/twitter.png>
 	    </a>
 
-		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_time_span%2f"
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_datetime_resampling%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Reddit. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/reddit.png>
 	    </a>
 
-	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_time_span%2f"
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_datetime_resampling%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Pinterest. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/pinterest.png>
 	    </a>
 
-	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_time_span%2f"
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_datetime_resampling%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Tumblr. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/tumblr.png>
 	    </a>
 
-		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_time_span%2f
-			&title=Pandas%20Time%20Span&summary=Pandas%20time%20span%20represents%20a%20period%20of%20time%2c%20for%20example%2c%20one%20day%2c%20one%20month%2c%20or%20one%20year%26hellip%3b%20It%20is%20also%20called%20period%20object.%20I%20do%20not%20use%20time%20span%20object%20very%20often%2c%20but%20it%20is%20one%20of%20four%20pandas%20objects%20related%20to%20datetime.%20So%2c%20I%20am%20writing%20a%20very%20brief%20introduction%20for%20time%20span.%0aTo%20create%20a%20time%20span%20object%2c%20we%20can%20use%20Period%28%29%20method%3a%0apd.Period%28%29%20The%20keyword%20argument%20freq%20specify%20the%20span%20of%20the%20time.&source=rafed123.github.io"
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_datetime_resampling%2f
+			&title=Pandas%20Datetime%20Resampling&summary=Resampling%20in%20Pandas%20is%20a%20very%20convenient%20method%20to%20%26ldquo%3baggregate%26rdquo%3b%20your%20data%20based%20on%20specific%20time%20interval.%20It%20works%20like%20groupby%20in%20Pandas%20%28or%20GROUP%20BY%20in%20SQL%29%2c%20but%20it%20offers%20more%20flexibility.%20For%20example%2c%20the%20groupby%20method%20in%20Pandas%20only%20aggregate%20data%20based%20on%20the%20attributes%20included%20in%20a%20column.%20But%20resampling%20for%20datetime%20can%20%26ldquo%3baggregate%26rdquo%3b%20data%20based%20on%20any%20user%20defined%20time%20interval.%20It%20might%20be%20easier%20to%20demonstrate%20with%20an%20example%3a%20given%20a%20Pandas%20DataFrame%20%28df%29%20of%3a&source=rafed123.github.io"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on LinkedIn. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/linkedin.png>
 	    </a>
 
-	    <a  href="mailto:?subject=Pandas%20Time%20Span&amp;body=Check out this site https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_time_span%2f"
+	    <a  href="mailto:?subject=Pandas%20Datetime%20Resampling&amp;body=Check out this site https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_datetime_resampling%2f"
 	        title="Share via Email. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/mail.png>
 	    </a>

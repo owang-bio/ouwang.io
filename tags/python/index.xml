@@ -6,7 +6,16 @@
     <description>Recent content in python on Data Analyst&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 22 Oct 2021 00:50:03 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Oct 2021 00:50:45 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pandas Datetime Resampling</title>
+      <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_datetime_resampling/</link>
+      <pubDate>Sun, 24 Oct 2021 00:50:45 -0600</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_datetime_resampling/</guid>
+      <description>Resampling in Pandas is a very convenient method to &amp;ldquo;aggregate&amp;rdquo; your data based on specific time interval. It works like groupby in Pandas (or GROUP BY in SQL), but it offers more flexibility. For example, the groupby method in Pandas only aggregate data based on the attributes included in a column. But resampling for datetime can &amp;ldquo;aggregate&amp;rdquo; data based on any user defined time interval. It might be easier to demonstrate with an example: given a Pandas DataFrame (df) of:</description>
+    </item>
+    
     <item>
       <title>Pandas Time Span</title>
       <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_time_span/</link>
