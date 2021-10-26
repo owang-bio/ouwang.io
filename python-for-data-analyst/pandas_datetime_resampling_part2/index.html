@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><title>
+    Pandas Datetime Resampling - Part 2 | 
+    
+    Data Analyst&#39;s Blog</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Closed and Label Arguments of Resampling in Pandas
+    ">
+
+
+<meta property="og:title" content="Pandas Datetime Resampling - Part 2" />
+<meta property="og:description" content="Closed and Label Arguments of Resampling in Pandas" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_datetime_resampling_part2/" /><meta property="article:section" content="python-for-data-analyst" />
+<meta property="article:published_time" content="2021-10-25T22:47:39-06:00" />
+<meta property="article:modified_time" content="2021-10-25T22:47:39-06:00" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Pandas Datetime Resampling - Part 2"/>
+<meta name="twitter:description" content="Closed and Label Arguments of Resampling in Pandas"/>
+
+<meta itemprop="name" content="Pandas Datetime Resampling - Part 2">
+<meta itemprop="description" content="Closed and Label Arguments of Resampling in Pandas"><meta itemprop="datePublished" content="2021-10-25T22:47:39-06:00" />
+<meta itemprop="dateModified" content="2021-10-25T22:47:39-06:00" />
+<meta itemprop="wordCount" content="439">
+<meta itemprop="keywords" content="Python,pandas,datetime," />
+<link rel="canonical" href="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_datetime_resampling_part2/" />
+
+<link rel="icon" type="image/png" href="https://owang-bio.github.io/ouwang.io/image/favicon.ico">
+
+<link rel="stylesheet" href="/ouwang.io/css/font-awesome.min.css">
+<link rel="stylesheet" href="/ouwang.io/css/bulma.min.css">
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<script src=/ouwang.io/js/ramium.js></script>
+<link rel="stylesheet" href=/ouwang.io/css/ramium.css>
+
+
+
+
+
+</head>
+
+<body><nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href=/ouwang.io/>
+      
+      <strong>Data Analyst&#39;s Blog </strong>
+      
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      
+      
+      <a class="navbar-item" href="/ouwang.io/">Home</a>
+      
+      
+      
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">This Blog</a>
+        <div class="navbar-dropdown">
+          
+          <a class="navbar-item" href="/ouwang.io/tags/">All Tags</a>
+          
+          <a class="navbar-item" href="/ouwang.io/sections/">All Sections</a>
+          
+          <a class="navbar-item" href="/ouwang.io/posts/">All Posts</a>
+          
+        </div>
+      </div>
+      
+      
+      
+      <a class="navbar-item" href="/ouwang.io/author/">Author</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      
+
+      
+      <div class="navbar-item">
+        <form id="cse-search-box-form-id" onsubmit="return executeQuery();" role="search">
+          <div class="field has-addons">
+            <div class="control is-expanded">
+              <input id="cse-search-input-box-id" size=15 class="input" type="text" autocomplete="off"
+                placeholder="&#xf1a0; Google search" style="font-family:Arial, FontAwesome">
+            </div>
+
+            <div class="control">
+              <button type="submit" class="button is-black">
+                <i class="fa fa-search"></i>
+                </a>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</nav><div class="columns is-centered">
+        <div id="page-body" class="column is-7">
+
+<div class="content blog">
+    <h1>Pandas Datetime Resampling - Part 2</h1>
+
+    <div id="infobar" class="level is-mobile">
+        <div class="level-left">
+            
+            <div class="level-item">
+                <p class="subtitle info date">Oct 25, 2021
+                </p>
+            </div>
+            
+
+            <div class="level-item">
+                <p class="subtitle info">
+                    2 mins read
+                </p>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            <div class="tags">
+                
+                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/python">Python</a>
+                
+                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/pandas">Pandas</a>
+                
+                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/datetime">Datetime</a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="tags is-hidden-desktop">
+        
+        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/python">Python</a>
+        
+        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/pandas">Pandas</a>
+        
+        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/datetime">Datetime</a>
+        
+    </div>
+
+    <div class="blog-text">
+        
+
+        <p>Pandas&rsquo;s documentation about the <strong>closed</strong> and <strong>label</strong> argument for resample() is somewhat confusing, which is why I decided to write this post.</p>
+<h3 id="1-closed"><strong>1. Closed</strong></h3>
+<p>Let&rsquo;s start with following dataset (variable name: ts) which has a frequency of day, and a value of 1 for each date:</p>
+<pre><code>2021-01-01    1
+2021-01-02    1
+2021-01-03    1
+2021-01-04    1
+2021-01-05    1
+2021-01-06    1
+2021-01-07    1
+2021-01-08    1
+2021-01-09    1
+2021-01-10    1
+2021-01-11    1
+2021-01-12    1
+Freq: D, Name: value, dtype: int64
+</code></pre><p>Now if we resample it (and get the sum of values) to a frequency of 5-day, and add a keyword argument <strong>closed</strong>:</p>
+<pre><code>ts.resample('5D', closed='left').sum()
+</code></pre><p>we will get:</p>
+<pre><code>2021-01-01    5
+2021-01-06    5
+2021-01-11    2
+Freq: 5D, Name: value, dtype: int64
+</code></pre><p>With <strong>closed=&lsquo;left&rsquo;</strong>, we are basically setting the 5-day bins as following:</p>
+<pre><code>2021-01-01 &lt;= date &lt; 2021-01-06 (2021-01-01 + 5 days)
+2021-01-06 &lt;= date &lt; 2021-01-11 (2021-01-06 + 5 days)
+2021-01-11 &lt;= date &lt; 2021-01-16 (2021-01-11 + 5 days)
+</code></pre><p>Notice that the &ldquo;&lt;=&ldquo;sign is on the <strong>left</strong>, and that&rsquo;s exactly what the <strong>closed=&lsquo;left&rsquo;</strong> does!</p>
+<p>Now let&rsquo;s try  <strong>closed=&lsquo;right&rsquo;</strong>:</p>
+<pre><code>ts.resample('5D', closed='right').sum()
+</code></pre><p>and things start getting a little confusing, because we get:</p>
+<pre><code>2020-12-27    1
+2021-01-01    5
+2021-01-06    5
+2021-01-11    1
+Freq: 5D, Name: value, dtype: int64
+</code></pre><p>&ldquo;2020-12-27&rdquo; is not even in the original dataset, what is causing it showing up in the resampling results?</p>
+<p>The answer is simple, same as the above example, <strong>closed=&lsquo;right&rsquo;</strong> just tells Pandas to put the &ldquo;&lt;=&rdquo; on the right side as this:</p>
+<pre><code>2021-01-01 &lt; date &lt;= 2021-01-06 (2021-01-01 + 5 days)
+2021-01-06 &lt; date &lt;= 2021-01-11 (2021-01-06 + 5 days)
+2021-01-11 &lt; date &lt;= 2021-01-16 (2021-01-11 + 5 days)
+</code></pre><p>but what about &ldquo;2021-01-01&rdquo; which is not included in the first bin, but we did have a data point on that date. So, Pandas went one bin backwards:</p>
+<pre><code>2020-12-27 (2021-01-01 - 5 days) &lt; date &lt;= 2021-01-01
+</code></pre><p>Now, the results included everything from the original dataset which are aggregated in a 5-day interval.</p>
+<h3 id="1-label"><strong>1. Label</strong></h3>
+<p>The above example also helps with understanding the <strong>label</strong> argument. Let&rsquo;s revisit the <strong>first example above</strong> to demonstrate how to use it.</p>
+<p><strong>label=&lsquo;right&rsquo;</strong> uses the dates on the right as the label of resampling results. For example:</p>
+<pre><code>ts.resample('5D', closed='left', label='right').sum()
+</code></pre><p>returns:</p>
+<pre><code>2021-01-06    5
+2021-01-11    5
+2021-01-16    2
+Freq: 5D, Name: value, dtype: int64
+</code></pre><p>while <strong>label=&lsquo;left&rsquo;</strong> uses the dates on the left as the label</p>
+<pre><code>ts.resample('5D', closed='left', label='left').sum()
+</code></pre><p>returns:</p>
+<pre><code>2021-01-01    5
+2021-01-06    5
+2021-01-11    2
+Freq: 5D, Name: value, dtype: int64
+</code></pre><p>The <strong>label</strong> argument has different default value, it can be either &lsquo;left&rsquo; or &lsquo;right&rsquo; based on the datetime frequency we are resampling to. I would recommend always specifically telling Pandas how you want to label the result DataFrame/Series.</p>
+
+    </div>
+</div><div id="social-media-share" class="has-text-centered">
+	<p><i>Sharing is caring!</i></p>
+	<br>
+	
+	<div class="share-buttons">
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_datetime_resampling_part2%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Facebook. Opens in a new window.">
+	        <img src=/ouwang.io/img/icons/45px/facebook.png>
+	    </a>
+
+	    <a  href="https://twitter.com/intent/tweet?text=Pandas%20Datetime%20Resampling%20-%20Part%202&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_datetime_resampling_part2%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Twitter. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/twitter.png>
+	    </a>
+
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_datetime_resampling_part2%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Reddit. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/reddit.png>
+	    </a>
+
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_datetime_resampling_part2%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Pinterest. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/pinterest.png>
+	    </a>
+
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_datetime_resampling_part2%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Tumblr. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/tumblr.png>
+	    </a>
+
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_datetime_resampling_part2%2f
+			&title=Pandas%20Datetime%20Resampling%20-%20Part%202&summary=Pandas%26rsquo%3bs%20documentation%20about%20the%20closed%20and%20label%20argument%20for%20resample%28%29%20is%20somewhat%20confusing%2c%20which%20is%20why%20I%20decided%20to%20write%20this%20post.%0a1.%20Closed%20Let%26rsquo%3bs%20start%20with%20following%20dataset%20%28variable%20name%3a%20ts%29%20which%20has%20a%20frequency%20of%20day%2c%20and%20a%20value%20of%201%20for%20each%20date%3a%0a2021-01-01%201%202021-01-02%201%202021-01-03%201%202021-01-04%201%202021-01-05%201%202021-01-06%201%202021-01-07%201%202021-01-08%201%202021-01-09%201%202021-01-10%201%202021-01-11%201%202021-01-12%201%20Freq%3a%20D%2c%20Name%3a%20value%2c%20dtype%3a%20int64%20Now%20if%20we%20resample%20it%20%28and%20get%20the%20sum%20of%20values%29%20to%20a%20frequency%20of%205-day%2c%20and%20add%20a%20keyword%20argument%20closed%3a&source=rafed123.github.io"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on LinkedIn. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/linkedin.png>
+	    </a>
+
+	    <a  href="mailto:?subject=Pandas%20Datetime%20Resampling%20-%20Part%202&amp;body=Check out this site https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_datetime_resampling_part2%2f"
+	        title="Share via Email. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/mail.png>
+	    </a>
+	</div>
+</div>
+
+
+<br>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    (function () {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = '';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+    </div>
+<script async src="https://cse.google.com/cse.js?cx=google-search-code"></script>
+<gcse:searchresults-only></gcse:searchresults-only>
+
+
+<footer class="footer has-background-dark">
+    <div class="content has-text-centered has-text-white">
+        <p>
+            © Ou. Powered by
+            <a class="has-text-light" href="https://github.com/gohugoio/hugo" target="_blank">
+            Hugo</a>. Theme
+            <a class="has-text-light" href="https://github.com/rafed123/ramium/" target="_blank">
+                Ramium.
+            </a>
+        </p>
+    </div>
+</footer>
+</body>
+
+</html>

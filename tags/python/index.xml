@@ -6,9 +6,20 @@
     <description>Recent content in python on Data Analyst&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Oct 2021 00:50:45 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Oct 2021 22:47:39 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Pandas Datetime Resampling</title>
+      <title>Pandas Datetime Resampling - Part 2</title>
+      <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_datetime_resampling_part2/</link>
+      <pubDate>Mon, 25 Oct 2021 22:47:39 -0600</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_datetime_resampling_part2/</guid>
+      <description>Pandas&amp;rsquo;s documentation about the closed and label argument for resample() is somewhat confusing, which is why I decided to write this post.
+1. Closed Let&amp;rsquo;s start with following dataset (variable name: ts) which has a frequency of day, and a value of 1 for each date:
+2021-01-01 1 2021-01-02 1 2021-01-03 1 2021-01-04 1 2021-01-05 1 2021-01-06 1 2021-01-07 1 2021-01-08 1 2021-01-09 1 2021-01-10 1 2021-01-11 1 2021-01-12 1 Freq: D, Name: value, dtype: int64 Now if we resample it (and get the sum of values) to a frequency of 5-day, and add a keyword argument closed:</description>
+    </item>
+    
+    <item>
+      <title>Pandas Datetime Resampling - Part 1</title>
       <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_datetime_resampling/</link>
       <pubDate>Sun, 24 Oct 2021 00:50:45 -0600</pubDate>
       

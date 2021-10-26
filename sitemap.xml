@@ -4,7 +4,7 @@
       
 	  <url>
 	    <loc>https://owang-bio.github.io/ouwang.io/</loc>
-	    <lastmod>2021-10-24</lastmod>
+	    <lastmod>2021-10-25</lastmod>
         
 
         
@@ -15,7 +15,7 @@
       
 	  <url>
 	    <loc>https://owang-bio.github.io/ouwang.io/tags/datetime/</loc>
-	    <lastmod>2021-10-24</lastmod>
+	    <lastmod>2021-10-25</lastmod>
         
 
         
@@ -26,7 +26,7 @@
       
 	  <url>
 	    <loc>https://owang-bio.github.io/ouwang.io/tags/pandas/</loc>
-	    <lastmod>2021-10-24</lastmod>
+	    <lastmod>2021-10-25</lastmod>
         
 
         
@@ -36,8 +36,8 @@
       
       
 	  <url>
-	    <loc>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_datetime_resampling/</loc>
-	    <lastmod>2021-10-24</lastmod>
+	    <loc>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_datetime_resampling_part2/</loc>
+	    <lastmod>2021-10-25</lastmod>
         
 
         
@@ -48,7 +48,7 @@
       
 	  <url>
 	    <loc>https://owang-bio.github.io/ouwang.io/tags/python/</loc>
-	    <lastmod>2021-10-24</lastmod>
+	    <lastmod>2021-10-25</lastmod>
         
 
         
@@ -59,7 +59,7 @@
       
 	  <url>
 	    <loc>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/</loc>
-	    <lastmod>2021-10-24</lastmod>
+	    <lastmod>2021-10-25</lastmod>
         
 
         
@@ -70,6 +70,17 @@
       
 	  <url>
 	    <loc>https://owang-bio.github.io/ouwang.io/tags/</loc>
+	    <lastmod>2021-10-25</lastmod>
+        
+
+        
+	  </url>
+	  
+  
+      
+      
+	  <url>
+	    <loc>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_datetime_resampling/</loc>
 	    <lastmod>2021-10-24</lastmod>
         
 
