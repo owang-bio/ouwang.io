@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>String Functions on Data Analyst&#39;s Blog</title>
+    <link>https://owang-bio.github.io/ouwang.io/tags/string-functions/</link>
+    <description>Recent content in String Functions on Data Analyst&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 Oct 2021 22:56:13 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/tags/string-functions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>String Functions in Pandas</title>
+      <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/string_functions_in_pandas/</link>
+      <pubDate>Tue, 26 Oct 2021 22:56:13 -0600</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/string_functions_in_pandas/</guid>
+      <description>To apply to string methods to strings in a Pandas Series, a .str accessor is needed. For example:
+Series.str.lower() This post will focus on four string methods, replace(), contains(), extract(), match(). The more comprehensive list of string methods for Pandas Series can be find here. In my opinion, in order to use extract() and match(), a basic understanding of regular expression is a must.
+We can create a Series (variable named as demo_str) of string to demonstrate these functions:</description>
+    </item>
+    
+  </channel>
+</rss>

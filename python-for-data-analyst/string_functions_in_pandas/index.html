@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><title>
+    String Functions in Pandas | 
+    
+    Data Analyst&#39;s Blog</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="String Methods, replace(), contains(), extract() and match() in Pandas
+    ">
+
+
+<meta property="og:title" content="String Functions in Pandas" />
+<meta property="og:description" content="String Methods, replace(), contains(), extract() and match() in Pandas" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/string_functions_in_pandas/" /><meta property="article:section" content="python-for-data-analyst" />
+<meta property="article:published_time" content="2021-10-26T22:56:13-06:00" />
+<meta property="article:modified_time" content="2021-10-26T22:56:13-06:00" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="String Functions in Pandas"/>
+<meta name="twitter:description" content="String Methods, replace(), contains(), extract() and match() in Pandas"/>
+
+<meta itemprop="name" content="String Functions in Pandas">
+<meta itemprop="description" content="String Methods, replace(), contains(), extract() and match() in Pandas"><meta itemprop="datePublished" content="2021-10-26T22:56:13-06:00" />
+<meta itemprop="dateModified" content="2021-10-26T22:56:13-06:00" />
+<meta itemprop="wordCount" content="649">
+<meta itemprop="keywords" content="Python,Pandas,String Functions," />
+<link rel="canonical" href="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/string_functions_in_pandas/" />
+
+<link rel="icon" type="image/png" href="https://owang-bio.github.io/ouwang.io/image/favicon.ico">
+
+<link rel="stylesheet" href="/ouwang.io/css/font-awesome.min.css">
+<link rel="stylesheet" href="/ouwang.io/css/bulma.min.css">
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<script src=/ouwang.io/js/ramium.js></script>
+<link rel="stylesheet" href=/ouwang.io/css/ramium.css>
+
+
+
+
+
+</head>
+
+<body><nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href=/ouwang.io/>
+      
+      <strong>Data Analyst&#39;s Blog </strong>
+      
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      
+      
+      <a class="navbar-item" href="/ouwang.io/">Home</a>
+      
+      
+      
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">This Blog</a>
+        <div class="navbar-dropdown">
+          
+          <a class="navbar-item" href="/ouwang.io/tags/">All Tags</a>
+          
+          <a class="navbar-item" href="/ouwang.io/sections/">All Sections</a>
+          
+          <a class="navbar-item" href="/ouwang.io/posts/">All Posts</a>
+          
+        </div>
+      </div>
+      
+      
+      
+      <a class="navbar-item" href="/ouwang.io/author/">Author</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      
+
+      
+      <div class="navbar-item">
+        <form id="cse-search-box-form-id" onsubmit="return executeQuery();" role="search">
+          <div class="field has-addons">
+            <div class="control is-expanded">
+              <input id="cse-search-input-box-id" size=15 class="input" type="text" autocomplete="off"
+                placeholder="&#xf1a0; Google search" style="font-family:Arial, FontAwesome">
+            </div>
+
+            <div class="control">
+              <button type="submit" class="button is-black">
+                <i class="fa fa-search"></i>
+                </a>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</nav><div class="columns is-centered">
+        <div id="page-body" class="column is-7">
+
+<div class="content blog">
+    <h1>String Functions in Pandas</h1>
+
+    <div id="infobar" class="level is-mobile">
+        <div class="level-left">
+            
+            <div class="level-item">
+                <p class="subtitle info date">Oct 26, 2021
+                </p>
+            </div>
+            
+
+            <div class="level-item">
+                <p class="subtitle info">
+                    4 mins read
+                </p>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            <div class="tags">
+                
+                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/python">Python</a>
+                
+                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/pandas">Pandas</a>
+                
+                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/string-functions">String Functions</a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="tags is-hidden-desktop">
+        
+        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/python">Python</a>
+        
+        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/pandas">Pandas</a>
+        
+        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/string-functions">String functions</a>
+        
+    </div>
+
+    <div class="blog-text">
+        
+
+        <p>To apply to string methods to strings in a Pandas Series, a <strong>.str</strong> accessor is needed. For example:</p>
+<pre><code>Series.str.lower()
+</code></pre><p>This post will focus on four string methods, replace(), contains(), extract(), match(). The more comprehensive list of string methods for Pandas Series can be find <a href="https://pandas.pydata.org/docs/reference/series.html#api-series-str">here</a>. In my opinion, in order to use extract() and match(), a basic understanding of regular expression is a must.</p>
+<p>We can create a Series (variable named as demo_str) of string to demonstrate these functions:</p>
+<pre><code>0 Pepsi 8oz
+1 Coke 236ml
+2 Diet Coke 8oz
+3 Diet Pepsi 236ml
+Name: Drinks, dtype: object
+</code></pre><h3 id="1-replace"><strong>1. replace()</strong></h3>
+<p>They syntax is fairly simple. For example, if we want to replace &ldquo;236ml&rdquo; with &ldquo;8oz&rdquo;, we can do:</p>
+<pre><code>demo_str.str.replace('236ml', '8oz')
+</code></pre><p>and now we get:</p>
+<pre><code>0         Pepsi 8oz
+1          Coke 8oz
+2     Diet Coke 8oz
+3    Diet Pepsi 8oz
+Name: Drinks, dtype: object
+</code></pre><p>One argument <strong>case</strong> takes boolean type to specify whether it is case sensitive. Another argument <strong>regex</strong> can be used to to specify if the pattern is a regular expression.</p>
+<p>For example:</p>
+<pre><code>demo_str.str.replace('\d+ML', '8oz', case=False, regex=True)
+</code></pre><p>will also replace &ldquo;236ml&rdquo; to &ldquo;8oz&rdquo;. In fact, it will change any number followed by &ldquo;ml&rdquo;, &ldquo;mL&rdquo;, &ldquo;Ml&rdquo; or &ldquo;ML&rdquo; to &ldquo;8oz&rdquo;. Regular expression is a big topic, I will introduce it in future posts.</p>
+<h3 id="2-contains"><strong>2. contains()</strong></h3>
+<p>Contain tests if the string contains a pattern, and it takes a pattern argument, for example, if we want to test if &ldquo;pepsi&rdquo; is contained in any of the strings (and case insensitive), we can do:</p>
+<pre><code>demo_str.str.contains(pat='pepsi', case=False)
+</code></pre><p>which will return:</p>
+<pre><code>0     True
+1    False
+2    False
+3     True
+Name: Drinks, dtype: bool
+</code></pre><p>contains() also support regular expression, and I often use contains() and match() interchangeably when the pattern is a regular expression. But when the pattern is not a regular expression, I often use contains() because it detect the patterns in any positions of a string while match() test the matches from the beginning of a string.</p>
+<h3 id="3-extract"><strong>3. extract()</strong></h3>
+<p>extract() returns a Series or DataFrame depending on how many groups we are trying to extract. The group(s) of patterns that we are trying to extract need to be included in a pair of parenthesis &ldquo;()&rdquo;. For example, if I am trying to extract the number from the demo_str series, I can do:</p>
+<pre><code>demo_str.str.extract('(\d+)')
+</code></pre><p>This will give me a Series, because I only have one pair of parenthesis:</p>
+<pre><code>0      8
+1    236
+2      8
+3    236
+Name: Drinks, dtype: object
+</code></pre><p>Now if I want to extract the number and their units, with two pairs of parenthesis:</p>
+<pre><code>demo_str.str.extract('[^0-9]*(\d+)([a-zA-Z]+)')
+</code></pre><p>I will get a DataFrame with 2 columns:</p>
+<pre><code>|   0 | 1   |
+|:----|:----|
+|   8 | oz  |
+| 236 | ml  |
+|   8 | oz  |
+| 236 | ml  |
+</code></pre><p>The first column includes the first group which is the number, and the second column includes the second group which is the units.</p>
+<h3 id="3-match"><strong>3. match()</strong></h3>
+<p>match() will test if the pattern exists in a string at start of the string. For example:</p>
+<pre><code>demo_str.str.match(pat='pepsi', case=False)
+</code></pre><p>will return</p>
+<pre><code>0     True
+1    False
+2    False
+3    False
+Name: Drinks, dtype: bool
+</code></pre><p>The forth record returned a False because it did not start with &ldquo;Pepsi&rdquo;. However, if we do this with a regular expression:</p>
+<pre><code>demo_str.str.match(pat='.*pepsi', case=False)
+</code></pre><p>we will get the same results as contains():</p>
+<pre><code>0     True
+1    False
+2    False
+3     True
+Name: Drinks, dtype: bool
+</code></pre><p>Match also take the case argument, similar to contains().</p>
+<h3 id="4-chain-up-the-string-methods"><strong>4. Chain up The String Methods</strong></h3>
+<p>The string methods can be chained up, but each time a method is called, .str accessor is needed. For example, if we want to replace &ldquo;ml&rdquo; to &ldquo;oz&rdquo;, and then extract their volume and units, we can do:</p>
+<pre><code>(
+    demo_str.str.replace('236ml', '8oz')
+        .str.extract('[^0-9]*(\d+)([a-zA-Z]+)')
+)
+</code></pre><p>and we will get a DataFrame with updated values:</p>
+<pre><code>|   0 | 1   |
+|----:|:----|
+|   8 | oz  |
+|   8 | oz  |
+|   8 | oz  |
+|   8 | oz  |
+</code></pre>
+    </div>
+</div><div id="social-media-share" class="has-text-centered">
+	<p><i>Sharing is caring!</i></p>
+	<br>
+	
+	<div class="share-buttons">
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fstring_functions_in_pandas%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Facebook. Opens in a new window.">
+	        <img src=/ouwang.io/img/icons/45px/facebook.png>
+	    </a>
+
+	    <a  href="https://twitter.com/intent/tweet?text=String%20Functions%20in%20Pandas&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fstring_functions_in_pandas%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Twitter. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/twitter.png>
+	    </a>
+
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fstring_functions_in_pandas%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Reddit. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/reddit.png>
+	    </a>
+
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fstring_functions_in_pandas%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Pinterest. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/pinterest.png>
+	    </a>
+
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fstring_functions_in_pandas%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Tumblr. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/tumblr.png>
+	    </a>
+
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fstring_functions_in_pandas%2f
+			&title=String%20Functions%20in%20Pandas&summary=To%20apply%20to%20string%20methods%20to%20strings%20in%20a%20Pandas%20Series%2c%20a%20.str%20accessor%20is%20needed.%20For%20example%3a%0aSeries.str.lower%28%29%20This%20post%20will%20focus%20on%20four%20string%20methods%2c%20replace%28%29%2c%20contains%28%29%2c%20extract%28%29%2c%20match%28%29.%20The%20more%20comprehensive%20list%20of%20string%20methods%20for%20Pandas%20Series%20can%20be%20find%20here.%20In%20my%20opinion%2c%20in%20order%20to%20use%20extract%28%29%20and%20match%28%29%2c%20a%20basic%20understanding%20of%20regular%20expression%20is%20a%20must.%0aWe%20can%20create%20a%20Series%20%28variable%20named%20as%20demo_str%29%20of%20string%20to%20demonstrate%20these%20functions%3a&source=rafed123.github.io"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on LinkedIn. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/linkedin.png>
+	    </a>
+
+	    <a  href="mailto:?subject=String%20Functions%20in%20Pandas&amp;body=Check out this site https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fstring_functions_in_pandas%2f"
+	        title="Share via Email. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/mail.png>
+	    </a>
+	</div>
+</div>
+
+
+<br>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    (function () {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = '';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+    </div>
+<script async src="https://cse.google.com/cse.js?cx=google-search-code"></script>
+<gcse:searchresults-only></gcse:searchresults-only>
+
+
+<footer class="footer has-background-dark">
+    <div class="content has-text-centered has-text-white">
+        <p>
+            © 2020 Ramium. Powered by
+            <a class="has-text-light" href="https://github.com/gohugoio/hugo" target="_blank">
+            Hugo</a>. Theme
+            <a class="has-text-light" href="https://github.com/rafed123/ramium/" target="_blank">
+                Ramium.
+            </a>
+        </p>
+    </div>
+</footer>
+</body>
+
+</html>
