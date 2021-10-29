@@ -30,6 +30,16 @@ We can create a Series (variable named as demo_str) of string to demonstrate the
     </item>
     
     <item>
+      <title>Pandas Datetime index</title>
+      <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_datetimeindex/</link>
+      <pubDate>Mon, 25 Oct 2021 00:01:37 -0600</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_datetimeindex/</guid>
+      <description>Pandas Datatime index helps the performance when we need to do a lot of calculations associated with datetime. It also provides convenient methods to access the data from a DataFrame/Series because datetime has attributes such as month, year&amp;hellip; In addition, the resample() will work only if the index is datetime.
+Let&amp;rsquo;s use a DataFrame with datetime index to demonstrate some of its use cases. The DataFrame df is defined as:</description>
+    </item>
+    
+    <item>
       <title>Pandas Datetime Resampling - Part 1</title>
       <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_datetime_resampling/</link>
       <pubDate>Sun, 24 Oct 2021 00:50:45 -0600</pubDate>
