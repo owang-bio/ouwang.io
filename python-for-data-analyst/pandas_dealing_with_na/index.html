@@ -2,34 +2,34 @@
 <html lang="en-us">
 
 <head><title>
-    Pandas Datetime Index | 
+    Dealing With Missing Values With Pandas | 
     
     Data Analyst&#39;s Blog</title>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Datetime as index in Pandas Series/DataFrame
+<meta name="description" content="Pandas NA, .isna(), .notna(), .fillna(), .dropna(), .interpolate()
     ">
 
 
-<meta property="og:title" content="Pandas Datetime index" />
-<meta property="og:description" content="Datetime as index in Pandas Series/DataFrame" />
+<meta property="og:title" content="Dealing With Missing Values With Pandas" />
+<meta property="og:description" content="Pandas NA, .isna(), .notna(), .fillna(), .dropna(), .interpolate()" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_datetimeindex/" /><meta property="article:section" content="python-for-data-analyst" />
-<meta property="article:published_time" content="2021-10-25T00:01:37-06:00" />
-<meta property="article:modified_time" content="2021-10-25T00:01:37-06:00" />
+<meta property="og:url" content="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_dealing_with_na/" /><meta property="article:section" content="python-for-data-analyst" />
+<meta property="article:published_time" content="2021-10-29T22:37:58-06:00" />
+<meta property="article:modified_time" content="2021-10-29T22:37:58-06:00" />
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Pandas Datetime index"/>
-<meta name="twitter:description" content="Datetime as index in Pandas Series/DataFrame"/>
+<meta name="twitter:title" content="Dealing With Missing Values With Pandas"/>
+<meta name="twitter:description" content="Pandas NA, .isna(), .notna(), .fillna(), .dropna(), .interpolate()"/>
 
-<meta itemprop="name" content="Pandas Datetime index">
-<meta itemprop="description" content="Datetime as index in Pandas Series/DataFrame"><meta itemprop="datePublished" content="2021-10-25T00:01:37-06:00" />
-<meta itemprop="dateModified" content="2021-10-25T00:01:37-06:00" />
-<meta itemprop="wordCount" content="250">
-<meta itemprop="keywords" content="Python,pandas,datetime," />
-<link rel="canonical" href="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_datetimeindex/" />
+<meta itemprop="name" content="Dealing With Missing Values With Pandas">
+<meta itemprop="description" content="Pandas NA, .isna(), .notna(), .fillna(), .dropna(), .interpolate()"><meta itemprop="datePublished" content="2021-10-29T22:37:58-06:00" />
+<meta itemprop="dateModified" content="2021-10-29T22:37:58-06:00" />
+<meta itemprop="wordCount" content="401">
+<meta itemprop="keywords" content="Python,pandas," />
+<link rel="canonical" href="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_dealing_with_na/" />
 
 <link rel="icon" type="image/png" href="https://owang-bio.github.io/ouwang.io/image/favicon.ico">
 
@@ -132,20 +132,20 @@ if (!doNotTrack) {
         <div id="page-body" class="column is-7">
 
 <div class="content blog">
-    <h1>Pandas Datetime Index</h1>
+    <h1>Dealing With Missing Values With Pandas</h1>
 
     <div id="infobar" class="level is-mobile">
         <div class="level-left">
             
             <div class="level-item">
-                <p class="subtitle info date">Oct 25, 2021
+                <p class="subtitle info date">Oct 29, 2021
                 </p>
             </div>
             
 
             <div class="level-item">
                 <p class="subtitle info">
-                    1 min read
+                    2 mins read
                 </p>
             </div>
         </div>
@@ -155,8 +155,6 @@ if (!doNotTrack) {
                 <a class="tag is-dark is-rounded" href="/ouwang.io/tags/python">Python</a>
                 
                 <a class="tag is-dark is-rounded" href="/ouwang.io/tags/pandas">Pandas</a>
-                
-                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/datetime">Datetime</a>
                 
             </div>
         </div>
@@ -168,149 +166,127 @@ if (!doNotTrack) {
         
         <a class="tag is-dark is-rounded" href="/ouwang.io/tags/pandas">Pandas</a>
         
-        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/datetime">Datetime</a>
-        
     </div>
 
     <div class="blog-text">
         
 
-        <p>Pandas Datatime index helps the performance when we need to do a lot of calculations associated with datetime. It also provides convenient methods to access the data from a DataFrame/Series because datetime has attributes such as <strong>month</strong>, <strong>year</strong>&hellip; In addition, the resample() will work only if the index is datetime.</p>
-<p>Let&rsquo;s use a DataFrame with datetime index to demonstrate some of its use cases. The DataFrame df is defined as:</p>
+        <p>We are not living in a perfect world, so there are almost always some missing data. This post only introduce Pandas&rsquo;s methods that allow us to work with missing values. I will write about techniques to replace NAs in data analytics posts.</p>
+<p>First, Pandas has its own NA objects, which can be created by calling <strong>pandas.NA</strong>. However, pandas.NA is a little weird because we cannot convert a Series/DataFrame into &lsquo;float&rsquo; data type if it contains pandas.NA, while numpy.nan works just fine. So, I would recommend sticking with numpy.nan if we want to input NA values into a Pandas Series/DataFrame.</p>
+<h3 id="1-isnanotna"><strong>1. .isna()/.notna()</strong></h3>
+<p>.isna() is a pandas function, and DataFrame and Series also have .isna() methods. We can apply pandas.isna() on DataFrame/Series, or directly call the .isna() method of a DataFrame/Series. For example:</p>
+<pre><code>pandas.isna(df)
+df.isna()
+</code></pre><p>will return the same results. The .isna() method return True if the element is NA, and False if not. <strong>.notna()</strong> just does exact the opposite things as .isna().</p>
+<p>To demonstrate <strong>.dropna()</strong> and <strong>.fillna()</strong>, let&rsquo;s first set up a DataFrame df:</p>
 <table border="2" class="dataframe" style="width:30%">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
-      <th>Value</th>
+      <th>id</th>
+      <th>value_1</th>
+      <th>value_2</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2021-01-31</th>
-      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>&lt;NA&gt;</td>
     </tr>
     <tr>
-      <th>2021-05-31</th>
+      <td>2</td>
+      <td>2</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>2021-09-30</th>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>2022-01-31</th>
       <td>3</td>
-    </tr>
-    <tr>
-      <th>2022-05-31</th>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>2022-09-30</th>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>2023-01-31</th>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>2023-05-31</th>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>2023-09-30</th>
-      <td>8</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
     </tr>
   </tbody>
 </table>
-<p>First, if we want to access data for year of 2021, we only need to call:</p>
-<pre><code>df['2021']
-</code></pre><p>and we will get:</p>
+<h3 id="2-dropna"><strong>2. .dropna()</strong></h3>
+<p>.dropna() by default will remove any rows with at least one NA values. But we can set the threshold. For example:</p>
+<pre><code>df.dropna(thresh=2)
+</code></pre><p>will keep rows with number of NAs less than the threshold:</p>
 <table border="2" class="dataframe" style="width:30%">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
-      <th>Value</th>
+      <th>id</th>
+      <th>value_1</th>
+      <th>value_2</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2021-01-31</th>
-      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>&lt;NA&gt;</td>
     </tr>
     <tr>
-      <th>2021-05-31</th>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>Also, a <strong>axis</strong> argument will specify whether we are removing rows or columns. For example:</p>
+<pre><code>df.dropna(axis=1, thresh=2)
+</code></pre><p>will remove columns with more than 1 NAs and return:</p>
+<table border="2" class="dataframe" style="width:30%">
+  <thead>
+    <tr style="text-align: right;">
+      <th>id</th>
+      <th>value_1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>2021-09-30</th>
+      <td>2</td>
       <td>2</td>
     </tr>
+    <tr>
+      <td>3</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
   </tbody>
 </table>
-<p>Or, if we want data form 2021 to 2022, we can do:</p>
-<pre><code>df['2021':'2022']
-</code></pre><p>This is so much less code than using conditions to select rows from the DataFrame.</p>
-<p>We can also access data using the attributes of datetime object. For example, we can select the rows for January of each year:</p>
-<pre><code>df[df.index.month == 1]
-</code></pre><p>and we will get:</p>
+<h3 id="3-fillna"><strong>3. .fillna()</strong></h3>
+<p>.fillna() replace NA with provided value or existing values. For example:</p>
+<pre><code>df.fillna(-1)
+</code></pre><p>will replace all the NAs to -1:</p>
 <table border="2" class="dataframe" style="width:30%">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
-      <th>Value</th>
+      <th>id</th>
+      <th>value_1</th>
+      <th>value_2</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2021-01-31</th>
-      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>-1</td>
     </tr>
     <tr>
-      <th>2022-01-31</th>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
       <td>3</td>
-    </tr>
-    <tr>
-      <th>2023-01-31</th>
-      <td>6</td>
+      <td>-1</td>
+      <td>-1</td>
     </tr>
   </tbody>
 </table>
-<p>A list of datetime attributes that we can use to access datetime index can be find <a href="https://pandas.pydata.org/docs/user_guide/timeseries.html#time-date-components">here</a>.</p>
-<p>To aggregate the data, we can use resample() method. For example:</p>
-<pre><code>df.resample('8M').sum()
-</code></pre><p>will return the sum of values for a bin size of 8 months:</p>
-<table border="2" class="dataframe" style="width:30%">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2021-01-31</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2021-09-30</th>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>2022-05-31</th>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>2023-01-31</th>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>2023-09-30</th>
-      <td>15</td>
-    </tr>
-  </tbody>
-</table> 
-<p>More information about resample() can be find in another two posts(<a href="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_datetime_resampling/">part 1</a> and <a href="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_datetime_resampling_part2/">part 2</a>).</p>
+<p>.fillna() has a helpful argument, <strong>method</strong>, which takes [&lsquo;backfill&rsquo;, &lsquo;bfill&rsquo;, &lsquo;pad&rsquo;, &lsquo;ffill&rsquo;, None]. &ldquo;pad&rdquo;/&ldquo;ffill&rdquo; uses the last non-NA value to replace following NAs, while &ldquo;backfill&rdquo; / &ldquo;bfill&rdquo; uses the next non-NA value to replace preceding NAs. The <strong>axis</strong> argument will specify whether we are replacing NAs by columns or rows.</p>
+<p>Pandas also have an more sophisticated method to replace NAs, <strong>.interpolate()</strong>. It works even we don&rsquo;t provide any arguments, but I would highly recommend to read its <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.interpolate.html">documentations</a>, especially the methods this method can take. <strong>In order to use .interpolate(), the data type needs to be &lsquo;float&rsquo;</strong>, otherwise it will not work as expected.</p>
 
     </div>
 </div><div id="social-media-share" class="has-text-centered">
@@ -318,44 +294,44 @@ if (!doNotTrack) {
 	<br>
 	
 	<div class="share-buttons">
-	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_datetimeindex%2f"
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_dealing_with_na%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Facebook. Opens in a new window.">
 	        <img src=/ouwang.io/img/icons/45px/facebook.png>
 	    </a>
 
-	    <a  href="https://twitter.com/intent/tweet?text=Pandas%20Datetime%20index&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_datetimeindex%2f"
+	    <a  href="https://twitter.com/intent/tweet?text=Dealing%20With%20Missing%20Values%20With%20Pandas&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_dealing_with_na%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Twitter. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/twitter.png>
 	    </a>
 
-		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_datetimeindex%2f"
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_dealing_with_na%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Reddit. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/reddit.png>
 	    </a>
 
-	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_datetimeindex%2f"
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_dealing_with_na%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Pinterest. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/pinterest.png>
 	    </a>
 
-	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_datetimeindex%2f"
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_dealing_with_na%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Tumblr. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/tumblr.png>
 	    </a>
 
-		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_datetimeindex%2f
-			&title=Pandas%20Datetime%20index&summary=Pandas%20Datatime%20index%20helps%20the%20performance%20when%20we%20need%20to%20do%20a%20lot%20of%20calculations%20associated%20with%20datetime.%20It%20also%20provides%20convenient%20methods%20to%20access%20the%20data%20from%20a%20DataFrame%2fSeries%20because%20datetime%20has%20attributes%20such%20as%20month%2c%20year%26hellip%3b%20In%20addition%2c%20the%20resample%28%29%20will%20work%20only%20if%20the%20index%20is%20datetime.%0aLet%26rsquo%3bs%20use%20a%20DataFrame%20with%20datetime%20index%20to%20demonstrate%20some%20of%20its%20use%20cases.%20The%20DataFrame%20df%20is%20defined%20as%3a&source=rafed123.github.io"
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_dealing_with_na%2f
+			&title=Dealing%20With%20Missing%20Values%20With%20Pandas&summary=We%20are%20not%20living%20in%20a%20perfect%20world%2c%20so%20there%20are%20almost%20always%20some%20missing%20data.%20This%20post%20only%20introduce%20Pandas%26rsquo%3bs%20methods%20that%20allow%20us%20to%20work%20with%20missing%20values.%20I%20will%20write%20about%20techniques%20to%20replace%20NAs%20in%20data%20analytics%20posts.%0aFirst%2c%20Pandas%20has%20its%20own%20NA%20objects%2c%20which%20can%20be%20created%20by%20calling%20pandas.NA.%20However%2c%20pandas.NA%20is%20a%20little%20weird%20because%20we%20cannot%20convert%20a%20Series%2fDataFrame%20into%20%26lsquo%3bfloat%26rsquo%3b%20data%20type%20if%20it%20contains%20pandas.&source=rafed123.github.io"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on LinkedIn. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/linkedin.png>
 	    </a>
 
-	    <a  href="mailto:?subject=Pandas%20Datetime%20index&amp;body=Check out this site https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_datetimeindex%2f"
+	    <a  href="mailto:?subject=Dealing%20With%20Missing%20Values%20With%20Pandas&amp;body=Check out this site https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_dealing_with_na%2f"
 	        title="Share via Email. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/mail.png>
 	    </a>
