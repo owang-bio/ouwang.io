@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>numpy on Data Analyst&#39;s Blog</title>
+    <link>https://owang-bio.github.io/ouwang.io/tags/numpy/</link>
+    <description>Recent content in numpy on Data Analyst&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 29 Oct 2021 00:44:08 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/tags/numpy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pandas where() vs Numpy.where()</title>
+      <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_numpy_where/</link>
+      <pubDate>Fri, 29 Oct 2021 00:44:08 -0600</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_numpy_where/</guid>
+      <description>Pandas and Numpy have lots of methods that share the same name, and where() is one of them that I use very often. They are both if&amp;hellip;else&amp;hellip; function, but there are some difference and this post will explain the difference.
+Let&amp;rsquo;s start with a DataFrame (df):
+ id value     0 1   1 2   2 3   3 4   4 5    Pandas where() is a Series method, and the first positional keyword &amp;ldquo;cond&amp;rdquo; takes a condition.</description>
+    </item>
+    
+  </channel>
+</rss>

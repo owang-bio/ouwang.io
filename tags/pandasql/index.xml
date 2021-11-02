@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pandasql on Data Analyst&#39;s Blog</title>
+    <link>https://owang-bio.github.io/ouwang.io/tags/pandasql/</link>
+    <description>Recent content in pandasql on Data Analyst&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Nov 2021 01:16:30 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/tags/pandasql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pandasql</title>
+      <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandasql_part1/</link>
+      <pubDate>Mon, 01 Nov 2021 01:16:30 -0600</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandasql_part1/</guid>
+      <description>It would be nice if we can write SQL code to query Pandas DataFrame, and pandasql is just the package that enabled this. It accepts sqlite syntax and it support window functions. In this post, I am going to demonstrate why sometimes it is more convenient to write sql queries than calling Pandas functions.
+First, let&amp;rsquo;s set up some DataFrame, department:
+ id name     1 Operations   2 IT   3 HR    and employee:</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><title>
+    Pandas Where() vs Numpy.where() | 
+    
+    Data Analyst&#39;s Blog</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Difference between pandas where() and numpy.where(), also introduction of pandas mask()
+    ">
+
+
+<meta property="og:title" content="Pandas where() vs Numpy.where()" />
+<meta property="og:description" content="Difference between pandas where() and numpy.where(), also introduction of pandas mask()" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_numpy_where/" /><meta property="article:section" content="python-for-data-analyst" />
+<meta property="article:published_time" content="2021-10-29T00:44:08-06:00" />
+<meta property="article:modified_time" content="2021-10-29T00:44:08-06:00" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Pandas where() vs Numpy.where()"/>
+<meta name="twitter:description" content="Difference between pandas where() and numpy.where(), also introduction of pandas mask()"/>
+
+<meta itemprop="name" content="Pandas where() vs Numpy.where()">
+<meta itemprop="description" content="Difference between pandas where() and numpy.where(), also introduction of pandas mask()"><meta itemprop="datePublished" content="2021-10-29T00:44:08-06:00" />
+<meta itemprop="dateModified" content="2021-10-29T00:44:08-06:00" />
+<meta itemprop="wordCount" content="340">
+<meta itemprop="keywords" content="Python,pandas,numpy," />
+<link rel="canonical" href="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_numpy_where/" />
+
+<link rel="icon" type="image/png" href="https://owang-bio.github.io/ouwang.io/image/favicon.ico">
+
+<link rel="stylesheet" href="/ouwang.io/css/font-awesome.min.css">
+<link rel="stylesheet" href="/ouwang.io/css/bulma.min.css">
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<script src=/ouwang.io/js/ramium.js></script>
+<link rel="stylesheet" href=/ouwang.io/css/ramium.css>
+
+
+
+
+
+</head>
+
+<body><nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href=/ouwang.io/>
+      
+      <strong>Data Analyst&#39;s Blog </strong>
+      
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      
+      
+      <a class="navbar-item" href="/ouwang.io/">Home</a>
+      
+      
+      
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">This Blog</a>
+        <div class="navbar-dropdown">
+          
+          <a class="navbar-item" href="/ouwang.io/tags/">All Tags</a>
+          
+          <a class="navbar-item" href="/ouwang.io/sections/">All Sections</a>
+          
+          <a class="navbar-item" href="/ouwang.io/posts/">All Posts</a>
+          
+        </div>
+      </div>
+      
+      
+      
+      <a class="navbar-item" href="/ouwang.io/author/">Author</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      
+
+      
+      <div class="navbar-item">
+        <form id="cse-search-box-form-id" onsubmit="return executeQuery();" role="search">
+          <div class="field has-addons">
+            <div class="control is-expanded">
+              <input id="cse-search-input-box-id" size=15 class="input" type="text" autocomplete="off"
+                placeholder="&#xf1a0; Google search" style="font-family:Arial, FontAwesome">
+            </div>
+
+            <div class="control">
+              <button type="submit" class="button is-black">
+                <i class="fa fa-search"></i>
+                </a>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</nav><div class="columns is-centered">
+        <div id="page-body" class="column is-7">
+
+<div class="content blog">
+    <h1>Pandas Where() vs Numpy.where()</h1>
+
+    <div id="infobar" class="level is-mobile">
+        <div class="level-left">
+            
+            <div class="level-item">
+                <p class="subtitle info date">Oct 29, 2021
+                </p>
+            </div>
+            
+
+            <div class="level-item">
+                <p class="subtitle info">
+                    2 mins read
+                </p>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            <div class="tags">
+                
+                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/python">Python</a>
+                
+                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/pandas">Pandas</a>
+                
+                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/numpy">Numpy</a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="tags is-hidden-desktop">
+        
+        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/python">Python</a>
+        
+        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/pandas">Pandas</a>
+        
+        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/numpy">Numpy</a>
+        
+    </div>
+
+    <div class="blog-text">
+        
+
+        <p>Pandas and Numpy have lots of methods that share the same name, and where() is one of them that I use very often. They are both if&hellip;else&hellip; function, but there are some difference and this post will explain the difference.</p>
+<p>Let&rsquo;s start with a DataFrame (df):</p>
+<table border="2" class="dataframe" style="width:30%">
+  <thead>
+    <tr style="text-align: right;">
+      <th>id</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+<p>Pandas where() is a Series method, and the first positional keyword &ldquo;cond&rdquo; takes a condition. If the condition is True, the original value is kept, otherwise by default it returns NA. For example:</p>
+<pre><code>df['value'].where(df['value'] &gt; 3)
+</code></pre><p>returns:</p>
+<pre><code>0    NaN
+1    NaN
+2    NaN
+3    4.0
+4    5.0
+Name: value, dtype: float64
+</code></pre><p>We can provide a value to replace the original values when the condition is not met:</p>
+<pre><code>df['value'].where(df['value'] &gt; 3, 999)
+</code></pre><p>and it gives us:</p>
+<pre><code>0    999
+1    999
+2    999
+3      4
+4      5
+Name: value, dtype: int64
+</code></pre><p>If we set the <strong>&ldquo;inplace&rdquo;</strong> argument to True, the where() method becomes an setter and the values in the DataFrame will be changed. Pandas <strong>mask()</strong> is just the opposite of where(): when condition is not met, the values will be replaced, otherwise we can treat where() as an accessor for Pandas DataFrame.</p>
+<p>Numpy.where() takes at least 3 arguments: cond, x and y. x and y can be Numpy Array or Pandas Series, or anything that is <a href="https://www.tutorialspoint.com/numpy/numpy_broadcasting.htm">broadcastable</a>. For Numpy.where(), when condition is met, the value is taken from x, otherwise from y. For example:</p>
+<pre><code>np.where(df['value'] &gt; 3, 1, 0)
+</code></pre><p>will return:</p>
+<pre><code>array([0, 0, 0, 1, 1])
+</code></pre><p>Notice numpy.where() returns an array, which can be directly assigned to pandas DataFrame as a column:</p>
+<pre><code>df['Greater Than 3'] = np.where(df['value'] &gt; 3, 1, 0)
+</code></pre><p>will return a DataFrame with 3 columns:</p>
+<table border="2" class="dataframe" style="width:30%">
+  <thead>
+    <tr style="text-align: right;">
+      <th>id</th>
+      <th>value</th>
+      <th>Greater Than 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>5</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+That's all about the difference between Pandas and Numpy where(). When you are trying to change the original values when the condition is met, I would recommend using numpy.where(). Otherwise, we can use Pandas where()/mask().
+    </div>
+</div><div id="social-media-share" class="has-text-centered">
+	<p><i>Sharing is caring!</i></p>
+	<br>
+	
+	<div class="share-buttons">
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_numpy_where%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Facebook. Opens in a new window.">
+	        <img src=/ouwang.io/img/icons/45px/facebook.png>
+	    </a>
+
+	    <a  href="https://twitter.com/intent/tweet?text=Pandas%20where%28%29%20vs%20Numpy.where%28%29&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_numpy_where%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Twitter. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/twitter.png>
+	    </a>
+
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_numpy_where%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Reddit. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/reddit.png>
+	    </a>
+
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_numpy_where%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Pinterest. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/pinterest.png>
+	    </a>
+
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_numpy_where%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Tumblr. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/tumblr.png>
+	    </a>
+
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_numpy_where%2f
+			&title=Pandas%20where%28%29%20vs%20Numpy.where%28%29&summary=Pandas%20and%20Numpy%20have%20lots%20of%20methods%20that%20share%20the%20same%20name%2c%20and%20where%28%29%20is%20one%20of%20them%20that%20I%20use%20very%20often.%20They%20are%20both%20if%26hellip%3belse%26hellip%3b%20function%2c%20but%20there%20are%20some%20difference%20and%20this%20post%20will%20explain%20the%20difference.%0aLet%26rsquo%3bs%20start%20with%20a%20DataFrame%20%28df%29%3a%0a%20id%20value%20%20%20%20%200%201%20%20%201%202%20%20%202%203%20%20%203%204%20%20%204%205%20%20%20%20Pandas%20where%28%29%20is%20a%20Series%20method%2c%20and%20the%20first%20positional%20keyword%20%26ldquo%3bcond%26rdquo%3b%20takes%20a%20condition.&source=rafed123.github.io"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on LinkedIn. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/linkedin.png>
+	    </a>
+
+	    <a  href="mailto:?subject=Pandas%20where%28%29%20vs%20Numpy.where%28%29&amp;body=Check out this site https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandas_numpy_where%2f"
+	        title="Share via Email. Opens in a new window." >
+	        <img src=/ouwang.io/img/icons/45px/mail.png>
+	    </a>
+	</div>
+</div>
+
+
+<br>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    (function () {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = '';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+    </div>
+<script async src="https://cse.google.com/cse.js?cx=google-search-code"></script>
+<gcse:searchresults-only></gcse:searchresults-only>
+
+
+<footer class="footer has-background-dark">
+    <div class="content has-text-centered has-text-white">
+        <p>
+            ©Ou Wang. Powered by
+            <a class="has-text-light" href="https://github.com/gohugoio/hugo" target="_blank">
+            Hugo</a>. Theme
+            <a class="has-text-light" href="https://github.com/rafed123/ramium/" target="_blank">
+                Ramium.
+            </a>
+        </p>
+    </div>
+</footer>
+</body>
+
+</html>

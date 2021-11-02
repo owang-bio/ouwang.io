@@ -6,7 +6,18 @@
     <description>Recent content on Data Analyst&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 Oct 2021 22:37:58 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Nov 2021 01:16:30 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pandasql</title>
+      <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandasql_part1/</link>
+      <pubDate>Mon, 01 Nov 2021 01:16:30 -0600</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandasql_part1/</guid>
+      <description>It would be nice if we can write SQL code to query Pandas DataFrame, and pandasql is just the package that enabled this. It accepts sqlite syntax and it support window functions. In this post, I am going to demonstrate why sometimes it is more convenient to write sql queries than calling Pandas functions.
+First, let&amp;rsquo;s set up some DataFrame, department:
+ id name     1 Operations   2 IT   3 HR    and employee:</description>
+    </item>
+    
     <item>
       <title>Dealing With Missing Values With Pandas</title>
       <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_dealing_with_na/</link>
@@ -15,6 +26,17 @@
       <guid>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_dealing_with_na/</guid>
       <description>We are not living in a perfect world, so there are almost always some missing data. This post only introduce Pandas&amp;rsquo;s methods that allow us to work with missing values. I will write about techniques to replace NAs in data analytics posts.
 First, Pandas has its own NA objects, which can be created by calling pandas.NA. However, pandas.NA is a little weird because we cannot convert a Series/DataFrame into &amp;lsquo;float&amp;rsquo; data type if it contains pandas.</description>
+    </item>
+    
+    <item>
+      <title>Pandas where() vs Numpy.where()</title>
+      <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_numpy_where/</link>
+      <pubDate>Fri, 29 Oct 2021 00:44:08 -0600</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_numpy_where/</guid>
+      <description>Pandas and Numpy have lots of methods that share the same name, and where() is one of them that I use very often. They are both if&amp;hellip;else&amp;hellip; function, but there are some difference and this post will explain the difference.
+Let&amp;rsquo;s start with a DataFrame (df):
+ id value     0 1   1 2   2 3   3 4   4 5    Pandas where() is a Series method, and the first positional keyword &amp;ldquo;cond&amp;rdquo; takes a condition.</description>
     </item>
     
     <item>

@@ -18,6 +18,17 @@ First, Pandas has its own NA objects, which can be created by calling pandas.NA.
     </item>
     
     <item>
+      <title>Pandas where() vs Numpy.where()</title>
+      <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_numpy_where/</link>
+      <pubDate>Fri, 29 Oct 2021 00:44:08 -0600</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandas_numpy_where/</guid>
+      <description>Pandas and Numpy have lots of methods that share the same name, and where() is one of them that I use very often. They are both if&amp;hellip;else&amp;hellip; function, but there are some difference and this post will explain the difference.
+Let&amp;rsquo;s start with a DataFrame (df):
+ id value     0 1   1 2   2 3   3 4   4 5    Pandas where() is a Series method, and the first positional keyword &amp;ldquo;cond&amp;rdquo; takes a condition.</description>
+    </item>
+    
+    <item>
       <title>String Functions in Pandas</title>
       <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/string_functions_in_pandas/</link>
       <pubDate>Tue, 26 Oct 2021 22:56:13 -0600</pubDate>
