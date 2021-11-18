@@ -6,16 +6,37 @@
     <description>Recent content in pandas on Data Analyst&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 Nov 2021 00:37:30 -0600</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/tags/pandas/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Nov 2021 00:07:26 -0700</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/tags/pandas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Numbering Window Function in Pandas and SQL</title>
+      <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/numbering_window_function/</link>
+      <pubDate>Thu, 18 Nov 2021 00:07:26 -0700</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/numbering_window_function/</guid>
+      <description>This is not an introduction to window functions in Pandas or SQL. I will just use one example to compare implementing numbering window function in Pandas and SQL. In this example, I will just use Pandasql to demonstrate SQL instead of actually pulling data from a database. RANK(), DENSE_RANK(), and ROW_NUMBER() are the three most common numbering functions, and I will just use RANK() for this demonstration.
+We can start from the following DataFrame product:</description>
+    </item>
+    
     <item>
       <title>Aggregate Window Functions in Pandas and SQL</title>
-      <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandasql_aggregate_window_function_v2/</link>
+      <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/aggregate_window_function_v2/</link>
       <pubDate>Tue, 02 Nov 2021 00:37:30 -0600</pubDate>
       
-      <guid>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandasql_aggregate_window_function_v2/</guid>
-      <description>This is not an introduction to window functions in Pandas or SQL. I will just use one example to compare implementing aggregate window function in Pandas and SQL.
+      <guid>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/aggregate_window_function_v2/</guid>
+      <description>This is not an introduction to window functions in Pandas or SQL. I will just use one example to compare implementing aggregate window function in Pandas and SQL. In this example, I just use Pandasql to demonstrate SQL instead of actually pulling data from a database.
 We can start from the following DataFrame df with 3 groups and some random values:
  id group value     0 a 1   1 a 2   2 a 3   3 a 4   4 a 5   5 a 6   6 b 1   7 b 2   8 b 3   9 b 4   10 b 5   11 b 6   12 c 1   13 c 2   14 c 3   15 c 4   16 c 5   17 c 6    If I am getting the sum of a 4 rows window with 1 row before current row and 2 row after, this would be my code to perform it in Pandasql:</description>
+    </item>
+    
+    <item>
+      <title>Pandasql</title>
+      <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandasql_part1/</link>
+      <pubDate>Mon, 01 Nov 2021 01:16:30 -0600</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandasql_part1/</guid>
+      <description>It would be nice if we can write SQL code to query Pandas DataFrame, and pandasql is just the package that enabled this. It accepts sqlite syntax and it support window functions. In this post, I am going to demonstrate why sometimes it is more convenient to write sql queries than calling Pandas functions.
+First, let&amp;rsquo;s set up some DataFrame, department:
+ id name     1 Operations   2 IT   3 HR    and employee:</description>
     </item>
     
     <item>

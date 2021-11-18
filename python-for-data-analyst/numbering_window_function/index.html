@@ -2,34 +2,34 @@
 <html lang="en-us">
 
 <head><title>
-    Pandasql | 
+    Numbering Window Function in Pandas and SQL | 
     
     Data Analyst&#39;s Blog</title>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Introducing pandasql
+<meta name="description" content="Window Functions in Pandas and SQL - Part 2. Numbering Window Function
     ">
 
 
-<meta property="og:title" content="Pandasql" />
-<meta property="og:description" content="Introducing pandasql" />
+<meta property="og:title" content="Numbering Window Function in Pandas and SQL" />
+<meta property="og:description" content="Window Functions in Pandas and SQL - Part 2. Numbering Window Function" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandasql_part1/" /><meta property="article:section" content="python-for-data-analyst" />
-<meta property="article:published_time" content="2021-11-01T01:16:30-06:00" />
-<meta property="article:modified_time" content="2021-11-01T01:16:30-06:00" />
+<meta property="og:url" content="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/numbering_window_function/" /><meta property="article:section" content="python-for-data-analyst" />
+<meta property="article:published_time" content="2021-11-18T00:07:26-07:00" />
+<meta property="article:modified_time" content="2021-11-18T00:07:26-07:00" />
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Pandasql"/>
-<meta name="twitter:description" content="Introducing pandasql"/>
+<meta name="twitter:title" content="Numbering Window Function in Pandas and SQL"/>
+<meta name="twitter:description" content="Window Functions in Pandas and SQL - Part 2. Numbering Window Function"/>
 
-<meta itemprop="name" content="Pandasql">
-<meta itemprop="description" content="Introducing pandasql"><meta itemprop="datePublished" content="2021-11-01T01:16:30-06:00" />
-<meta itemprop="dateModified" content="2021-11-01T01:16:30-06:00" />
-<meta itemprop="wordCount" content="387">
-<meta itemprop="keywords" content="Python,Pandas,sql," />
-<link rel="canonical" href="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/pandasql_part1/" />
+<meta itemprop="name" content="Numbering Window Function in Pandas and SQL">
+<meta itemprop="description" content="Window Functions in Pandas and SQL - Part 2. Numbering Window Function"><meta itemprop="datePublished" content="2021-11-18T00:07:26-07:00" />
+<meta itemprop="dateModified" content="2021-11-18T00:07:26-07:00" />
+<meta itemprop="wordCount" content="329">
+<meta itemprop="keywords" content="Python,pandas,window functions,sql," />
+<link rel="canonical" href="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/numbering_window_function/" />
 
 <link rel="icon" type="image/png" href="https://owang-bio.github.io/ouwang.io/image/favicon.ico">
 
@@ -132,13 +132,13 @@ if (!doNotTrack) {
         <div id="page-body" class="column is-7">
 
 <div class="content blog">
-    <h1>Pandasql</h1>
+    <h1>Numbering Window Function in Pandas and SQL</h1>
 
     <div id="infobar" class="level is-mobile">
         <div class="level-left">
             
             <div class="level-item">
-                <p class="subtitle info date">Nov 1, 2021
+                <p class="subtitle info date">Nov 18, 2021
                 </p>
             </div>
             
@@ -156,6 +156,8 @@ if (!doNotTrack) {
                 
                 <a class="tag is-dark is-rounded" href="/ouwang.io/tags/pandas">Pandas</a>
                 
+                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/window-functions">Window Functions</a>
+                
                 <a class="tag is-dark is-rounded" href="/ouwang.io/tags/sql">Sql</a>
                 
             </div>
@@ -168,6 +170,8 @@ if (!doNotTrack) {
         
         <a class="tag is-dark is-rounded" href="/ouwang.io/tags/pandas">Pandas</a>
         
+        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/window-functions">Window functions</a>
+        
         <a class="tag is-dark is-rounded" href="/ouwang.io/tags/sql">SQL</a>
         
     </div>
@@ -175,229 +179,197 @@ if (!doNotTrack) {
     <div class="blog-text">
         
 
-        <p>It would be nice if we can write SQL code to query Pandas DataFrame, and pandasql is just the package that enabled this. It accepts sqlite syntax and it support window functions. In this post, I am going to demonstrate why sometimes it is more convenient to write sql queries than calling Pandas functions.</p>
-<p>First, let&rsquo;s set up some DataFrame, department:</p>
-<table border="2" class="dataframe" style="width:30%">
+        <p>This is not an introduction to window functions in Pandas or SQL. I will just use one example to compare implementing numbering window function in Pandas and SQL. In this example, I will just use Pandasql to demonstrate SQL instead of actually pulling data from a database. RANK(), DENSE_RANK(), and ROW_NUMBER() are the three most common numbering functions, and I will just use RANK() for this demonstration.</p>
+<p>We can start from the following DataFrame <em>product</em>:</p>
+<table border="2" class="dataframe" style="width:60%">
   <thead>
     <tr style="text-align: right;">
-      <th>id</th>
-      <th>name</th>
+      <th>Category</th>
+      <th>Product_Name</th>
+      <th>Sales</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>1</td>
-      <td>Operations</td>
+      <td>Supplement</td>
+      <td>Vitamin A</td>
+      <td>100</td>
     </tr>
     <tr>
-      <td>2</td>
-      <td>IT</td>
+      <td>Supplement</td>
+      <td>Vitamin C</td>
+      <td>200</td>
     </tr>
     <tr>
-      <td>3</td>
-      <td>HR</td>
+      <td>Supplement</td>
+      <td>Vitamin D</td>
+      <td>300</td>
+    </tr>
+    <tr>
+      <td>Personal Care</td>
+      <td>Lotion</td>
+      <td>500</td>
+    </tr>
+    <tr>
+      <td>Personal Care</td>
+      <td>Cream</td>
+      <td>600</td>
+    </tr>
+    <tr>
+      <td>Personal Care</td>
+      <td>Conditioner</td>
+      <td>700</td>
+    </tr>
+    <tr>
+      <td>Cosmetics</td>
+      <td>Lipstick</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>Cosmetics</td>
+      <td>Eyeliner</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>Cosmetics</td>
+      <td>Polish</td>
+      <td>10</td>
     </tr>
   </tbody>
 </table>
-<p>and employee:</p>
-<table border="2" class="dataframe" style="width:40%">
-  <thead>
-    <tr style="text-align: right;">
-      <th>id</th>
-      <th>name</th>
-      <th>department_id</th>
-      <th>salary</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>John</td>
-      <td>2</td>
-      <td>60000</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Mike</td>
-      <td>3</td>
-      <td>80000</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Jane</td>
-      <td>2</td>
-      <td>70000</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>Gabi</td>
-      <td>3</td>
-      <td>90000</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>Amy</td>
-      <td>1</td>
-      <td>60000</td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>Tim</td>
-      <td>1</td>
-      <td>50000</td>
-    </tr>
-  </tbody>
-</table>
-<p>Let&rsquo;s say if we are trying to figure out the average and total salary for each department.</p>
-<h3 id="1-do-it-in-pandas"><strong>1. Do it in Pandas</strong></h3>
-<p>This would be my code:</p>
-<pre><code>(
-    department.merge(
-        employee
-        , left_on='id'
-        , right_on='department_id'
-        , how='inner'
-        , suffixes=['_department', '_employee']
-    )
-        .groupby(['id_department', 'name_department'], as_index=False)
-        .agg(
-            average_salary = pd.NamedAgg(column='salary', aggfunc='mean')
-            , total_salary = pd.NamedAgg(column='salary', aggfunc='sum')
-        )
-        .rename(
-            columns={
-                'id_department':'id'
-                , 'name_department':'name'
-            }
-        )
-)
-</code></pre><p>and we get:</p>
-<table border="2" class="dataframe" style="width:40%">
-  <thead>
-    <tr style="text-align: right;">
-      <th>id</th>
-      <th>name</th>
-      <th>average_salary</th>
-      <th>total_salary</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Operations</td>
-      <td>55000</td>
-      <td>110000</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>IT</td>
-      <td>65000</td>
-      <td>130000</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>HR</td>
-      <td>85000</td>
-      <td>170000</td>
-    </tr>
-  </tbody>
-</table>
-It is a lot of code, but more importantly it is hard to read.
-<h3 id="2-do-it-with-pandasql"><strong>2. Do it with pandasql</strong></h3>
-<p>Now, let&rsquo;s do it with pandasql:</p>
-<pre><code>from pandasql import sqldf
-pysqldf = lambda q: sqldf(q, globals())
-</code></pre><p>It is easier to set a function that takes a sql query than to provide a globals() arguments every time. The second argument can also be locals() if you are using it within a function. In fact, the second argument is just a list, you can create it with keys as table names in the sql query and python variable name as the elements.</p>
-<p>The sql query should be very simple for this task:</p>
+<p>If we want to perform a numbering operation to rank the sales for products in each category. In SQL (Pandasql), we can do:</p>
 <pre><code>q = &quot;&quot;&quot;
     select 
-        d.id
-        , d.name
-        , avg(e.salary) as average_salary
-        , sum(e.salary) as total_salary        
-    from department d
-    join employee e
-        on d.id = e.department_id
-    group by d.id
+        *
+        , rank() over(
+            partition by Category
+            order by Sales desc
+        ) as [Rank]
+    from product
 &quot;&quot;&quot;
-
 pysqldf(q)
-</code></pre><p>and we get exact the same results in the above:</p>
-<table border="2" class="dataframe" style="width:30%">
+</code></pre><p>to get the result DataFrame with ranks:</p>
+<table border="2" class="dataframe" style="width:60%">
   <thead>
     <tr style="text-align: right;">
-      <th>id</th>
-      <th>name</th>
-      <th>average_salary</th>
-      <th>total_salary</th>
+      <th>Category</th>
+      <th>Product_Name</th>
+      <th>Sales</th>
+      <th>Rank</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td>Cosmetics</td>
+      <td>Lipstick</td>
+      <td>50</td>
       <td>1</td>
-      <td>Operations</td>
-      <td>55000.0</td>
-      <td>110000</td>
     </tr>
     <tr>
+      <td>Cosmetics</td>
+      <td>Eyeliner</td>
+      <td>20</td>
       <td>2</td>
-      <td>IT</td>
-      <td>65000.0</td>
-      <td>130000</td>
     </tr>
     <tr>
+      <td>Cosmetics</td>
+      <td>Polish</td>
+      <td>10</td>
       <td>3</td>
-      <td>HR</td>
-      <td>85000.0</td>
-      <td>170000</td>
+    </tr>
+    <tr>
+      <td>Food</td>
+      <td>Vitamin D</td>
+      <td>300</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Food</td>
+      <td>Vitamin C</td>
+      <td>200</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Food</td>
+      <td>Vitamin A</td>
+      <td>100</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Personal Care</td>
+      <td>Conditioner</td>
+      <td>700</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Personal Care</td>
+      <td>Cream</td>
+      <td>600</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Personal Care</td>
+      <td>Lotion</td>
+      <td>500</td>
+      <td>3</td>
     </tr>
   </tbody>
 </table>
-Much less code and more clear to read! One thing to note is that when the we are dealing with large volume of data (can't be too large though if we are using Pandas), the performance of Pandasql is not very good.
+<p>In Pandas we can use the following code to get exactly the same results:</p>
+<pre><code>product.join(
+    (
+        product
+            .groupby('Category', as_index=False)['Sales']
+            .rank(ascending=False)
+    )
+    , rsuffix='_rank'
+).sort_values(by=['Category', 'Sales_rank'])
+</code></pre><p>The Pandas code is not bad at all. If you are trying to manipulate the Pandas DataFrame with numbering window functions, especially dataset with a couple of millions rows, I would recommend sticking with Pandas instead of Pandasql. I will leave DENSE_RANK(), and ROW_NUMBER() for you to try out. Also, try to explore the difference between RANK() and DENSE_RANK(). <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rank.html">Pandas&rsquo;s rank() function</a> takes a <strong>method</strong> argument which allows you to specify whether you want dense_rank(). Also, method=&lsquo;first&rsquo; for Pandas&rsquo;s rank() is helpful if you want to assign row number to each row of a window.</p>
+
     </div>
 </div><div id="social-media-share" class="has-text-centered">
 	<p><i>Sharing is caring!</i></p>
 	<br>
 	
 	<div class="share-buttons">
-	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandasql_part1%2f"
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fnumbering_window_function%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Facebook. Opens in a new window.">
 	        <img src=/ouwang.io/img/icons/45px/facebook.png>
 	    </a>
 
-	    <a  href="https://twitter.com/intent/tweet?text=Pandasql&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandasql_part1%2f"
+	    <a  href="https://twitter.com/intent/tweet?text=Numbering%20Window%20Function%20in%20Pandas%20and%20SQL&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fnumbering_window_function%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Twitter. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/twitter.png>
 	    </a>
 
-		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandasql_part1%2f"
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fnumbering_window_function%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Reddit. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/reddit.png>
 	    </a>
 
-	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandasql_part1%2f"
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fnumbering_window_function%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Pinterest. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/pinterest.png>
 	    </a>
 
-	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandasql_part1%2f"
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fnumbering_window_function%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Tumblr. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/tumblr.png>
 	    </a>
 
-		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandasql_part1%2f
-			&title=Pandasql&summary=It%20would%20be%20nice%20if%20we%20can%20write%20SQL%20code%20to%20query%20Pandas%20DataFrame%2c%20and%20pandasql%20is%20just%20the%20package%20that%20enabled%20this.%20It%20accepts%20sqlite%20syntax%20and%20it%20support%20window%20functions.%20In%20this%20post%2c%20I%20am%20going%20to%20demonstrate%20why%20sometimes%20it%20is%20more%20convenient%20to%20write%20sql%20queries%20than%20calling%20Pandas%20functions.%0aFirst%2c%20let%26rsquo%3bs%20set%20up%20some%20DataFrame%2c%20department%3a%0a%20id%20name%20%20%20%20%201%20Operations%20%20%202%20IT%20%20%203%20HR%20%20%20%20and%20employee%3a&source=rafed123.github.io"
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fnumbering_window_function%2f
+			&title=Numbering%20Window%20Function%20in%20Pandas%20and%20SQL&summary=This%20is%20not%20an%20introduction%20to%20window%20functions%20in%20Pandas%20or%20SQL.%20I%20will%20just%20use%20one%20example%20to%20compare%20implementing%20numbering%20window%20function%20in%20Pandas%20and%20SQL.%20In%20this%20example%2c%20I%20will%20just%20use%20Pandasql%20to%20demonstrate%20SQL%20instead%20of%20actually%20pulling%20data%20from%20a%20database.%20RANK%28%29%2c%20DENSE_RANK%28%29%2c%20and%20ROW_NUMBER%28%29%20are%20the%20three%20most%20common%20numbering%20functions%2c%20and%20I%20will%20just%20use%20RANK%28%29%20for%20this%20demonstration.%0aWe%20can%20start%20from%20the%20following%20DataFrame%20product%3a&source=rafed123.github.io"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on LinkedIn. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/linkedin.png>
 	    </a>
 
-	    <a  href="mailto:?subject=Pandasql&amp;body=Check out this site https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fpandasql_part1%2f"
+	    <a  href="mailto:?subject=Numbering%20Window%20Function%20in%20Pandas%20and%20SQL&amp;body=Check out this site https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fnumbering_window_function%2f"
 	        title="Share via Email. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/mail.png>
 	    </a>
