@@ -6,7 +6,18 @@
     <description>Recent content in Python on Data Analyst&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Nov 2021 00:07:26 -0700</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Nov 2021 01:09:11 -0700</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Navigation Window Function in Pandas and SQL</title>
+      <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/navigation_window_function/</link>
+      <pubDate>Sun, 21 Nov 2021 01:09:11 -0700</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/navigation_window_function/</guid>
+      <description>This is not an introduction to window functions in Pandas or SQL. I will just use some examples to compare implementing navigation window function in Pandas and Pandasql (SQL). Navigation window function returns value at a specific row of a window. For example, the first, last, n_th value, or next/last value relative to the current row.
+We can start from the following DataFrame product:
+ Category Product_Name Sales     Supplement Vitamin A 100   Supplement Vitamin C 200   Supplement Vitamin D 300   Personal Care Lotion 500   Personal Care Cream 600   Personal Care Conditioner 700   Cosmetics Lipstick 50   Cosmetics Eyeliner 20   Cosmetics Polish 10    If we are getting the product name of the second best selling product, with SQL (Pandasql) we can do:</description>
+    </item>
+    
     <item>
       <title>Numbering Window Function in Pandas and SQL</title>
       <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/numbering_window_function/</link>
