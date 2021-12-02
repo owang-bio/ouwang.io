@@ -307,7 +307,7 @@ It is a lot of code, but more importantly it is hard to read.
 <p>Now, let&rsquo;s do it with pandasql:</p>
 <pre><code>from pandasql import sqldf
 pysqldf = lambda q: sqldf(q, globals())
-</code></pre><p>It is easier to set a function that takes a sql query than to provide a globals() arguments every time. The second argument can also be locals() if you are using it within a function. In fact, the second argument is just a list, you can create it with keys as table names in the sql query and python variable name as the elements.</p>
+</code></pre><p>It is easier to set a function that takes a sql query than to provide a globals() arguments every time. The second argument can also be locals() if you are using it within a function. In fact, the second argument is just a dictionary, you can create it with keys as table names in the sql query and python variable name as the elements.</p>
 <p>The sql query should be very simple for this task:</p>
 <pre><code>q = &quot;&quot;&quot;
     select 

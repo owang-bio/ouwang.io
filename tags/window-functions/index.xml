@@ -13,8 +13,10 @@
       <pubDate>Thu, 18 Nov 2021 00:07:26 -0700</pubDate>
       
       <guid>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/numbering_window_function/</guid>
-      <description>This is not an introduction to window functions in Pandas or SQL. I will just use one example to compare implementing numbering window function in Pandas and SQL. In this example, I will just use Pandasql to demonstrate SQL instead of actually pulling data from a database. RANK(), DENSE_RANK(), and ROW_NUMBER() are the three most common numbering functions, and I will just use RANK() for this demonstration.
-We can start from the following DataFrame product:</description>
+      <description>This is not an introduction to window functions in Pandas or SQL. I will just use one example to compare implementing numbering window function in Pandas and Pandasql (SQL).
+RANK(), DENSE_RANK(), and ROW_NUMBER() are the three most common numbering functions in SQL, and I will just use RANK() for this demonstration.
+We can start from the following DataFrame product:
+ Category Product_Name Sales     Supplement Vitamin A 100   Supplement Vitamin C 200   Supplement Vitamin D 300   Personal Care Lotion 500   Personal Care Cream 600   Personal Care Conditioner 700   Cosmetics Lipstick 50   Cosmetics Eyeliner 20   Cosmetics Polish 10    If we want to perform a numbering operation to rank the sales for products in each category.</description>
     </item>
     
     <item>
@@ -23,7 +25,7 @@ We can start from the following DataFrame product:</description>
       <pubDate>Tue, 02 Nov 2021 00:37:30 -0600</pubDate>
       
       <guid>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/aggregate_window_function_v2/</guid>
-      <description>This is not an introduction to window functions in Pandas or SQL. I will just use one example to compare implementing aggregate window function in Pandas and SQL. In this example, I just use Pandasql to demonstrate SQL instead of actually pulling data from a database.
+      <description>This is not an introduction to window functions in Pandas or SQL. I will just use one example to compare implementing aggregate window function in Pandas and Pandasql (SQL).
 We can start from the following DataFrame df with 3 groups and some random values:
  id group value     0 a 1   1 a 2   2 a 3   3 a 4   4 a 5   5 a 6   6 b 1   7 b 2   8 b 3   9 b 4   10 b 5   11 b 6   12 c 1   13 c 2   14 c 3   15 c 4   16 c 5   17 c 6    If I am getting the sum of a 4 rows window with 1 row before current row and 2 row after, this would be my code to perform it in Pandasql:</description>
     </item>

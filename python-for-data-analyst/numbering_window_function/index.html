@@ -27,7 +27,7 @@
 <meta itemprop="name" content="Numbering Window Function in Pandas and SQL">
 <meta itemprop="description" content="Window Functions in Pandas and SQL - Part 2. Numbering Window Function"><meta itemprop="datePublished" content="2021-11-18T00:07:26-07:00" />
 <meta itemprop="dateModified" content="2021-11-18T00:07:26-07:00" />
-<meta itemprop="wordCount" content="329">
+<meta itemprop="wordCount" content="314">
 <meta itemprop="keywords" content="Python,pandas,window functions,sql," />
 <link rel="canonical" href="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/numbering_window_function/" />
 
@@ -179,9 +179,10 @@ if (!doNotTrack) {
     <div class="blog-text">
         
 
-        <p>This is not an introduction to window functions in Pandas or SQL. I will just use one example to compare implementing numbering window function in Pandas and SQL. In this example, I will just use Pandasql to demonstrate SQL instead of actually pulling data from a database. RANK(), DENSE_RANK(), and ROW_NUMBER() are the three most common numbering functions, and I will just use RANK() for this demonstration.</p>
+        <p>This is not an introduction to window functions in Pandas or SQL. I will just use one example to compare implementing numbering window function in Pandas and Pandasql (SQL).</p>
+<p>RANK(), DENSE_RANK(), and ROW_NUMBER() are the three most common numbering functions in SQL, and I will just use RANK() for this demonstration.</p>
 <p>We can start from the following DataFrame <em>product</em>:</p>
-<table border="2" class="dataframe" style="width:60%">
+<table border="2" class="dataframe" style="width:80%">
   <thead>
     <tr style="text-align: right;">
       <th>Category</th>
@@ -244,18 +245,18 @@ if (!doNotTrack) {
         , rank() over(
             partition by Category
             order by Sales desc
-        ) as [Rank]
+        ) as [Sales_rank]
     from product
 &quot;&quot;&quot;
 pysqldf(q)
 </code></pre><p>to get the result DataFrame with ranks:</p>
-<table border="2" class="dataframe" style="width:60%">
+<table border="2" class="dataframe" style="width:80%">
   <thead>
     <tr style="text-align: right;">
       <th>Category</th>
       <th>Product_Name</th>
       <th>Sales</th>
-      <th>Rank</th>
+      <th>Sales_rank</th>
     </tr>
   </thead>
   <tbody>
@@ -324,7 +325,7 @@ pysqldf(q)
     )
     , rsuffix='_rank'
 ).sort_values(by=['Category', 'Sales_rank'])
-</code></pre><p>The Pandas code is not bad at all. If you are trying to manipulate the Pandas DataFrame with numbering window functions, especially dataset with a couple of millions rows, I would recommend sticking with Pandas instead of Pandasql. I will leave DENSE_RANK(), and ROW_NUMBER() for you to try out. Also, try to explore the difference between RANK() and DENSE_RANK(). <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rank.html">Pandas&rsquo;s rank() function</a> takes a <strong>method</strong> argument which allows you to specify whether you want dense_rank(). Also, method=&lsquo;first&rsquo; for Pandas&rsquo;s rank() is helpful if you want to assign row number to each row of a window.</p>
+</code></pre><p>The Pandas code is not bad at all. If you are trying to manipulate the Pandas DataFrame with numbering window functions, especially dataset with a couple of millions rows, I would recommend sticking with Pandas instead of Pandasql. I will leave DENSE_RANK(), and ROW_NUMBER() for you to try out. Also, try to explore the difference between RANK() and DENSE_RANK(). <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rank.html">Pandas&rsquo;s rank() function</a> takes a <strong>method</strong> argument which allows you to specify whether you want dense_rank(). And the method=&lsquo;first&rsquo; for Pandas&rsquo;s rank() is helpful if you want to assign row number to each row of a window.</p>
 
     </div>
 </div><div id="social-media-share" class="has-text-centered">
@@ -363,7 +364,7 @@ pysqldf(q)
 	    </a>
 
 		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2fnumbering_window_function%2f
-			&title=Numbering%20Window%20Function%20in%20Pandas%20and%20SQL&summary=This%20is%20not%20an%20introduction%20to%20window%20functions%20in%20Pandas%20or%20SQL.%20I%20will%20just%20use%20one%20example%20to%20compare%20implementing%20numbering%20window%20function%20in%20Pandas%20and%20SQL.%20In%20this%20example%2c%20I%20will%20just%20use%20Pandasql%20to%20demonstrate%20SQL%20instead%20of%20actually%20pulling%20data%20from%20a%20database.%20RANK%28%29%2c%20DENSE_RANK%28%29%2c%20and%20ROW_NUMBER%28%29%20are%20the%20three%20most%20common%20numbering%20functions%2c%20and%20I%20will%20just%20use%20RANK%28%29%20for%20this%20demonstration.%0aWe%20can%20start%20from%20the%20following%20DataFrame%20product%3a&source=rafed123.github.io"
+			&title=Numbering%20Window%20Function%20in%20Pandas%20and%20SQL&summary=This%20is%20not%20an%20introduction%20to%20window%20functions%20in%20Pandas%20or%20SQL.%20I%20will%20just%20use%20one%20example%20to%20compare%20implementing%20numbering%20window%20function%20in%20Pandas%20and%20Pandasql%20%28SQL%29.%0aRANK%28%29%2c%20DENSE_RANK%28%29%2c%20and%20ROW_NUMBER%28%29%20are%20the%20three%20most%20common%20numbering%20functions%20in%20SQL%2c%20and%20I%20will%20just%20use%20RANK%28%29%20for%20this%20demonstration.%0aWe%20can%20start%20from%20the%20following%20DataFrame%20product%3a%0a%20Category%20Product_Name%20Sales%20%20%20%20%20Supplement%20Vitamin%20A%20100%20%20%20Supplement%20Vitamin%20C%20200%20%20%20Supplement%20Vitamin%20D%20300%20%20%20Personal%20Care%20Lotion%20500%20%20%20Personal%20Care%20Cream%20600%20%20%20Personal%20Care%20Conditioner%20700%20%20%20Cosmetics%20Lipstick%2050%20%20%20Cosmetics%20Eyeliner%2020%20%20%20Cosmetics%20Polish%2010%20%20%20%20If%20we%20want%20to%20perform%20a%20numbering%20operation%20to%20rank%20the%20sales%20for%20products%20in%20each%20category.&source=rafed123.github.io"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on LinkedIn. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/linkedin.png>

@@ -27,7 +27,7 @@
 <meta itemprop="name" content="Aggregate Window Functions in Pandas and SQL">
 <meta itemprop="description" content="Window Functions in Pandas and SQL - Part 1. Aggregate Analytic Function"><meta itemprop="datePublished" content="2021-11-02T00:37:30-06:00" />
 <meta itemprop="dateModified" content="2021-11-02T00:37:30-06:00" />
-<meta itemprop="wordCount" content="629">
+<meta itemprop="wordCount" content="630">
 <meta itemprop="keywords" content="Python,pandas,window functions,sql," />
 <link rel="canonical" href="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/aggregate_window_function_v2/" />
 
@@ -145,7 +145,7 @@ if (!doNotTrack) {
 
             <div class="level-item">
                 <p class="subtitle info">
-                    3 mins read
+                    4 mins read
                 </p>
             </div>
         </div>
@@ -179,7 +179,7 @@ if (!doNotTrack) {
     <div class="blog-text">
         
 
-        <p>This is not an introduction to window functions in Pandas or SQL. I will just use one example to compare implementing aggregate window function in Pandas and SQL. In this example, I just use Pandasql to demonstrate SQL instead of actually pulling data from a database.</p>
+        <p>This is not an introduction to window functions in Pandas or SQL. I will just use one example to compare implementing aggregate window function in Pandas and Pandasql (SQL).</p>
 <p>We can start from the following DataFrame df with 3 groups and some random values:</p>
 <table border="2" class="dataframe" style="width:40%">
   <thead>
@@ -294,7 +294,7 @@ if (!doNotTrack) {
     from df
 &quot;&quot;&quot;
 pysqldf(q)
-</code></pre><p>Not a lot difficult to achieve this if we do it with SQL, but now let&rsquo;s do it in Pandas:</p>
+</code></pre><p>Not a lot difficult to achieve this if we do it with SQL, but now let&rsquo;s do it with Pandas functions:</p>
 <pre><code>n_follow = 2
 n_preced = 1
 n_window = n_follow + n_preced + 1
@@ -445,7 +445,7 @@ result = df.join(df_part_2, rsuffix='_new')
   </tbody>
 </table>
 <p>Now let&rsquo;s talk about the Pandas code (BTW, it is confusing and you can skip it and read the last paragraph). I haven&rsquo;t found a flexible window function in Pandas that lets the user specify the range of rows to perform a aggregate function to. So I need to calculate the number of values in each window which is &ldquo;n_precedding + n_following + 1 (current row)&rdquo;. Then I shift the DataFrame up by the number of rows after the current row (n_following), so that we can use rolling() function in pandas to include everything in that window. shift() in pandas will remove the values on the top, so I then concatenate the head (n_following) rows back to the top for each partition. When the rows were shifted up, missing values were created, so I need to fill the missing value with the last valid number with fillna(method=&lsquo;pad&rsquo;) function. After aggregation is performed, the top rows needed to be removed because they were concatenated after the shift. I kept tracking the original index, because at the final step, I need to join the results back with the original DataFrame by index. That&rsquo;s the algorithm I used with Pandas to perform an aggregate window function&hellip;</p>
-<p>This is just an very general example, and I can just follow these steps to perform a lot of aggregate window functions with Pandas. Of course, Pandas provides several types of <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/window.html">windows</a> and methods, such as <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.transform.html">transform()</a>, to make our life a little easier. However, the windows and methods come with Pandas cannot cover all the use cases of window function, and it is just difficult to memorize all of them. So, I would still recommend just using pandasql or similar library (such as dataframe_sql) for this purposes because SQL code is way easier to write and read.</p>
+<p>This is just an very general example, and I can just follow these steps to perform a lot of aggregate window functions with Pandas. Of course, for special cases, like calculating the running total/average or aggregation of the whole window, Pandas provides several types of <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/window.html">windows</a> such as rolling()/expanding(), and methods such as <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.transform.html">transform()</a>, to make our life a little easier. However, the windows and methods come with Pandas cannot cover all the use cases of window function, and it is just difficult to memorize all of them. So, I would still recommend just using pandasql or similar library (such as dataframe_sql) for this purposes because SQL code is way easier to write and read.</p>
 
     </div>
 </div><div id="social-media-share" class="has-text-centered">
@@ -484,7 +484,7 @@ result = df.join(df_part_2, rsuffix='_new')
 	    </a>
 
 		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2faggregate_window_function_v2%2f
-			&title=Aggregate%20Window%20Functions%20in%20Pandas%20and%20SQL&summary=This%20is%20not%20an%20introduction%20to%20window%20functions%20in%20Pandas%20or%20SQL.%20I%20will%20just%20use%20one%20example%20to%20compare%20implementing%20aggregate%20window%20function%20in%20Pandas%20and%20SQL.%20In%20this%20example%2c%20I%20just%20use%20Pandasql%20to%20demonstrate%20SQL%20instead%20of%20actually%20pulling%20data%20from%20a%20database.%0aWe%20can%20start%20from%20the%20following%20DataFrame%20df%20with%203%20groups%20and%20some%20random%20values%3a%0a%20id%20group%20value%20%20%20%20%200%20a%201%20%20%201%20a%202%20%20%202%20a%203%20%20%203%20a%204%20%20%204%20a%205%20%20%205%20a%206%20%20%206%20b%201%20%20%207%20b%202%20%20%208%20b%203%20%20%209%20b%204%20%20%2010%20b%205%20%20%2011%20b%206%20%20%2012%20c%201%20%20%2013%20c%202%20%20%2014%20c%203%20%20%2015%20c%204%20%20%2016%20c%205%20%20%2017%20c%206%20%20%20%20If%20I%20am%20getting%20the%20sum%20of%20a%204%20rows%20window%20with%201%20row%20before%20current%20row%20and%202%20row%20after%2c%20this%20would%20be%20my%20code%20to%20perform%20it%20in%20Pandasql%3a&source=rafed123.github.io"
+			&title=Aggregate%20Window%20Functions%20in%20Pandas%20and%20SQL&summary=This%20is%20not%20an%20introduction%20to%20window%20functions%20in%20Pandas%20or%20SQL.%20I%20will%20just%20use%20one%20example%20to%20compare%20implementing%20aggregate%20window%20function%20in%20Pandas%20and%20Pandasql%20%28SQL%29.%0aWe%20can%20start%20from%20the%20following%20DataFrame%20df%20with%203%20groups%20and%20some%20random%20values%3a%0a%20id%20group%20value%20%20%20%20%200%20a%201%20%20%201%20a%202%20%20%202%20a%203%20%20%203%20a%204%20%20%204%20a%205%20%20%205%20a%206%20%20%206%20b%201%20%20%207%20b%202%20%20%208%20b%203%20%20%209%20b%204%20%20%2010%20b%205%20%20%2011%20b%206%20%20%2012%20c%201%20%20%2013%20c%202%20%20%2014%20c%203%20%20%2015%20c%204%20%20%2016%20c%205%20%20%2017%20c%206%20%20%20%20If%20I%20am%20getting%20the%20sum%20of%20a%204%20rows%20window%20with%201%20row%20before%20current%20row%20and%202%20row%20after%2c%20this%20would%20be%20my%20code%20to%20perform%20it%20in%20Pandasql%3a&source=rafed123.github.io"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on LinkedIn. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/linkedin.png>
