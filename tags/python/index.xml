@@ -6,7 +6,31 @@
     <description>Recent content in Python on Data Analyst&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Nov 2021 01:09:11 -0700</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Dec 2021 08:49:52 -0700</lastBuildDate><atom:link href="https://owang-bio.github.io/ouwang.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OS Module</title>
+      <link>https://owang-bio.github.io/ouwang.io/python-modules/os_module/</link>
+      <pubDate>Fri, 03 Dec 2021 08:49:52 -0700</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/python-modules/os_module/</guid>
+      <description>Python os module provides functions to interact with directories and files. I use the following 3 functions most frequently.
+1. os.getcwd() os.getcwd() returns a string of the current working directory.
+2. list files in a directory os.listdir(path_to_directory) returns a list, and the elements are the files inside of the directory.
+3. Test if a file is a directory os.path.isfile(path) returns True of False depending on if the path is to a directory or not.</description>
+    </item>
+    
+    <item>
+      <title>Sys Module</title>
+      <link>https://owang-bio.github.io/ouwang.io/python-modules/sys_module/</link>
+      <pubDate>Thu, 02 Dec 2021 23:30:19 -0700</pubDate>
+      
+      <guid>https://owang-bio.github.io/ouwang.io/python-modules/sys_module/</guid>
+      <description>Python sys module provides access and functions to interaction with the interpreter, and I have used sys.argv and sys.path() the most frequently.
+1. sys.argv sys.argv allows users to pass command line arguments to python scripts. For example, if we have a simple python script, named as print_all.py:
+import sys for i in sys.argv[1:]: print(i) If we execute this command in bash terminal:
+python3 print_all.py 1 2 3 we will get:</description>
+    </item>
+    
     <item>
       <title>Navigation Window Function in Pandas and SQL</title>
       <link>https://owang-bio.github.io/ouwang.io/python-for-data-analyst/navigation_window_function/</link>

@@ -2,34 +2,34 @@
 <html lang="en-us">
 
 <head><title>
-    Time Deltas and Date Offsets in Pandas | 
+    Sys Module | 
     
     Data Analyst&#39;s Blog</title>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Introduction to Pandas&#39;s Time deltas and Date offsets
+<meta name="description" content="Brief Introduction to Python Sys Module
     ">
 
 
-<meta property="og:title" content="Time deltas and Date offsets in Pandas" />
-<meta property="og:description" content="Introduction to Pandas&#39;s Time deltas and Date offsets" />
+<meta property="og:title" content="Sys Module" />
+<meta property="og:description" content="Brief Introduction to Python Sys Module" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/timedelta_timeoffsets_in_pandas/" /><meta property="article:section" content="python-for-data-analyst" />
-<meta property="article:published_time" content="2021-10-12T23:06:19-06:00" />
-<meta property="article:modified_time" content="2021-10-12T23:06:19-06:00" />
+<meta property="og:url" content="https://owang-bio.github.io/ouwang.io/python-modules/sys_module/" /><meta property="article:section" content="python-modules" />
+<meta property="article:published_time" content="2021-12-02T23:30:19-07:00" />
+<meta property="article:modified_time" content="2021-12-02T23:30:19-07:00" />
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Time deltas and Date offsets in Pandas"/>
-<meta name="twitter:description" content="Introduction to Pandas&#39;s Time deltas and Date offsets"/>
+<meta name="twitter:title" content="Sys Module"/>
+<meta name="twitter:description" content="Brief Introduction to Python Sys Module"/>
 
-<meta itemprop="name" content="Time deltas and Date offsets in Pandas">
-<meta itemprop="description" content="Introduction to Pandas&#39;s Time deltas and Date offsets"><meta itemprop="datePublished" content="2021-10-12T23:06:19-06:00" />
-<meta itemprop="dateModified" content="2021-10-12T23:06:19-06:00" />
-<meta itemprop="wordCount" content="218">
-<meta itemprop="keywords" content="python,datetime,pandas," />
-<link rel="canonical" href="https://owang-bio.github.io/ouwang.io/python-for-data-analyst/timedelta_timeoffsets_in_pandas/" />
+<meta itemprop="name" content="Sys Module">
+<meta itemprop="description" content="Brief Introduction to Python Sys Module"><meta itemprop="datePublished" content="2021-12-02T23:30:19-07:00" />
+<meta itemprop="dateModified" content="2021-12-02T23:30:19-07:00" />
+<meta itemprop="wordCount" content="210">
+<meta itemprop="keywords" content="python," />
+<link rel="canonical" href="https://owang-bio.github.io/ouwang.io/python-modules/sys_module/" />
 
 <link rel="icon" type="image/png" href="https://owang-bio.github.io/ouwang.io/image/favicon.ico">
 
@@ -132,13 +132,13 @@ if (!doNotTrack) {
         <div id="page-body" class="column is-7">
 
 <div class="content blog">
-    <h1>Time Deltas and Date Offsets in Pandas</h1>
+    <h1>Sys Module</h1>
 
     <div id="infobar" class="level is-mobile">
         <div class="level-left">
             
             <div class="level-item">
-                <p class="subtitle info date">Oct 12, 2021
+                <p class="subtitle info date">Dec 2, 2021
                 </p>
             </div>
             
@@ -154,10 +154,6 @@ if (!doNotTrack) {
                 
                 <a class="tag is-dark is-rounded" href="/ouwang.io/tags/python">Python</a>
                 
-                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/datetime">Datetime</a>
-                
-                <a class="tag is-dark is-rounded" href="/ouwang.io/tags/pandas">Pandas</a>
-                
             </div>
         </div>
     </div>
@@ -166,29 +162,32 @@ if (!doNotTrack) {
         
         <a class="tag is-dark is-rounded" href="/ouwang.io/tags/python">Python</a>
         
-        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/datetime">Datetime</a>
-        
-        <a class="tag is-dark is-rounded" href="/ouwang.io/tags/pandas">Pandas</a>
-        
     </div>
 
     <div class="blog-text">
         
 
-        <p>Pandas&rsquo;s Timedelta represents the difference between two Timestamps, but there is a little difference from the dateutil.relativedelta that I introduced in another post, which is equivalent to the Dateoffsets in Pandas. I was once confused about Pandas&rsquo;s Timedelta and Dateoffsets, so I decided to write a post about them today.</p>
-<p>Timedelta and Dateoffsets are almost the same when time zone information is not provided. When time zone is provided, one difference is that Timedelta of one day adds 24 hours to a Timestamp, while DateOffset of one day adds a day to a Timestamp. There will be difference when daylight saving is taken into consideration.</p>
-<p>I am using an example to show you the difference.
-pd.Timedelta(days=1) add 24 hours to a Timestamp:</p>
-<pre><code>pd.Timestamp(&quot;2021/11/07&quot;, tz = 'US/Central') + pd.Timedelta(days=1)
-</code></pre><p>will return</p>
-<pre><code>Timestamp('2021-11-07 23:00:00-0600', tz='US/Central')
-</code></pre><p>because daylight saving ends on 2021-11-07, and there are 25 hours in that day. So the date is not changed even though 24 hours were added to it.</p>
-<p>While pd.DateOffset(days=1) add a full day to a Timestamp, no matter how many hours are there in that day:</p>
-<pre><code>pd.Timestamp(&quot;2021/11/07&quot;, tz = 'US/Central') + pd.DateOffset(days=1)
-</code></pre><p>returns</p>
-<pre><code>Timestamp('2021-11-08 00:00:00-0600', tz='US/Central')
-</code></pre><p>and it gives you the date of one day after at the same time.</p>
-<p>When the difference is less than an hour, Timedelta and DateOffset are the same.</p>
+        <p>Python sys module provides access and functions to interaction with the interpreter, and I have used sys.argv and sys.path() the most frequently.</p>
+<h3 id="1-sysargv"><strong>1. sys.argv</strong></h3>
+<p>sys.argv allows users to pass command line arguments to python scripts. For example, if we have a simple python script, named as print_all.py:</p>
+<pre><code>import sys
+
+for i in sys.argv[1:]:
+    print(i)
+</code></pre><p>If we execute this command in bash terminal:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">python3 print_all.py <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span>
+</code></pre></div><p>we will get:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#ae81ff">1</span>
+<span style="color:#ae81ff">2</span>
+<span style="color:#ae81ff">3</span>
+</code></pre></div><p>The arguments can be a path to a file, an arguments needs to be passed to a function, or anything you need to manually input to a python script. It make running a python script much easier because you don&rsquo;t have to open it in any IDEs.</p>
+<h3 id="2-syspath"><strong>2. sys.path()</strong></h3>
+<p>Sys module&rsquo;s sys.path.insert() and sys.path.append() add folders to the python environment temporarily, which allows me to import customized libraries/packages without the need to spell out the whole path for every package.</p>
+<pre><code>sys.path.insert(0, &quot;/path_to_pythonModules/module1&quot;)
+</code></pre><p>inserts module1 folder to the python environment, and it will be checked first when you are loading a package or running a script, while</p>
+<pre><code>sys.path.append(&quot;/path_to_pythonModules/module2&quot;)
+</code></pre><p>add module2 folder to the last.</p>
+<p>Sys module includes a lot more functions and allows users to access the other environment variables. If interested, you can read more details <a href="https://docs.python.org/3/library/sys.html">here</a>.</p>
 
     </div>
 </div><div id="social-media-share" class="has-text-centered">
@@ -196,44 +195,44 @@ pd.Timedelta(days=1) add 24 hours to a Timestamp:</p>
 	<br>
 	
 	<div class="share-buttons">
-	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2ftimedelta_timeoffsets_in_pandas%2f"
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-modules%2fsys_module%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Facebook. Opens in a new window.">
 	        <img src=/ouwang.io/img/icons/45px/facebook.png>
 	    </a>
 
-	    <a  href="https://twitter.com/intent/tweet?text=Time%20deltas%20and%20Date%20offsets%20in%20Pandas&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2ftimedelta_timeoffsets_in_pandas%2f"
+	    <a  href="https://twitter.com/intent/tweet?text=Sys%20Module&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-modules%2fsys_module%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Twitter. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/twitter.png>
 	    </a>
 
-		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2ftimedelta_timeoffsets_in_pandas%2f"
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-modules%2fsys_module%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Reddit. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/reddit.png>
 	    </a>
 
-	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2ftimedelta_timeoffsets_in_pandas%2f"
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-modules%2fsys_module%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Pinterest. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/pinterest.png>
 	    </a>
 
-	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2ftimedelta_timeoffsets_in_pandas%2f"
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-modules%2fsys_module%2f"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on Tumblr. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/tumblr.png>
 	    </a>
 
-		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2ftimedelta_timeoffsets_in_pandas%2f
-			&title=Time%20deltas%20and%20Date%20offsets%20in%20Pandas&summary=Pandas%26rsquo%3bs%20Timedelta%20represents%20the%20difference%20between%20two%20Timestamps%2c%20but%20there%20is%20a%20little%20difference%20from%20the%20dateutil.relativedelta%20that%20I%20introduced%20in%20another%20post%2c%20which%20is%20equivalent%20to%20the%20Dateoffsets%20in%20Pandas.%20I%20was%20once%20confused%20about%20Pandas%26rsquo%3bs%20Timedelta%20and%20Dateoffsets%2c%20so%20I%20decided%20to%20write%20a%20post%20about%20them%20today.%0aTimedelta%20and%20Dateoffsets%20are%20almost%20the%20same%20when%20time%20zone%20information%20is%20not%20provided.%20When%20time%20zone%20is%20provided%2c%20one%20difference%20is%20that%20Timedelta%20of%20one%20day%20adds%2024%20hours%20to%20a%20Timestamp%2c%20while%20DateOffset%20of%20one%20day%20adds%20a%20day%20to%20a%20Timestamp.&source=rafed123.github.io"
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-modules%2fsys_module%2f
+			&title=Sys%20Module&summary=Python%20sys%20module%20provides%20access%20and%20functions%20to%20interaction%20with%20the%20interpreter%2c%20and%20I%20have%20used%20sys.argv%20and%20sys.path%28%29%20the%20most%20frequently.%0a1.%20sys.argv%20sys.argv%20allows%20users%20to%20pass%20command%20line%20arguments%20to%20python%20scripts.%20For%20example%2c%20if%20we%20have%20a%20simple%20python%20script%2c%20named%20as%20print_all.py%3a%0aimport%20sys%20for%20i%20in%20sys.argv%5b1%3a%5d%3a%20print%28i%29%20If%20we%20execute%20this%20command%20in%20bash%20terminal%3a%0apython3%20print_all.py%201%202%203%20we%20will%20get%3a&source=rafed123.github.io"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on LinkedIn. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/linkedin.png>
 	    </a>
 
-	    <a  href="mailto:?subject=Time%20deltas%20and%20Date%20offsets%20in%20Pandas&amp;body=Check out this site https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-for-data-analyst%2ftimedelta_timeoffsets_in_pandas%2f"
+	    <a  href="mailto:?subject=Sys%20Module&amp;body=Check out this site https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-modules%2fsys_module%2f"
 	        title="Share via Email. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/mail.png>
 	    </a>

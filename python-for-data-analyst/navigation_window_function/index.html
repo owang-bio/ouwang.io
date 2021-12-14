@@ -341,7 +341,7 @@ If we do it in Pandas, to get the same above results, this would be my code:
             partition by Category
             order by Sales desc
             rows between unbounded preceding and unbounded following
-        ) as Second_prod
+        ) as Last_prod
     from product
 &quot;&quot;&quot;
 pysqldf(q)
@@ -356,7 +356,7 @@ pysqldf(q)
     , rsuffix='_r'
 ).rename(
     columns={
-        'Product_Name_r':'Second_prod'
+        'Product_Name_r':'Last_prod'
     }
 ).sort_values(by=['Category', 'Sales'], ascending=False)
 </code></pre><p>will return the same results:</p>
@@ -366,7 +366,7 @@ pysqldf(q)
       <th>Category</th>
       <th>Product_Name</th>
       <th>Sales</th>
-      <th>Second_prod</th>
+      <th>Last_prod</th>
     </tr>
   </thead>
   <tbody>
