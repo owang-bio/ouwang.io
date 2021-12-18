@@ -27,7 +27,7 @@
 <meta itemprop="name" content="OS Module">
 <meta itemprop="description" content="Brief Introduction to Python OS Module"><meta itemprop="datePublished" content="2021-12-03T08:49:52-07:00" />
 <meta itemprop="dateModified" content="2021-12-03T08:49:52-07:00" />
-<meta itemprop="wordCount" content="123">
+<meta itemprop="wordCount" content="138">
 <meta itemprop="keywords" content="python," />
 <link rel="canonical" href="https://owang-bio.github.io/ouwang.io/python-modules/os_module/" />
 
@@ -167,14 +167,14 @@ if (!doNotTrack) {
     <div class="blog-text">
         
 
-        <p>Python os module provides functions to interact with directories and files. I use the following 3 functions most frequently.</p>
+        <p>Python os module provides functions to interact with directories and files. Also, using os module helps improve the potability of a python program. I use the following 3 functions most frequently.</p>
 <h3 id="1-osgetcwd"><strong>1. os.getcwd()</strong></h3>
 <p>os.getcwd() returns a string of the current working directory.</p>
 <h3 id="2-list-files-in-a-directory"><strong>2. list files in a directory</strong></h3>
 <p>os.listdir(path_to_directory) returns a list, and the elements are the files inside of the directory.</p>
 <h3 id="3-test-if-a-file-is-a-directory"><strong>3. Test if a file is a directory</strong></h3>
 <p>os.path.isfile(path) returns <em><strong>True</strong></em> of <em><strong>False</strong></em> depending on if the path is to a directory or not.</p>
-<p>One example of how I use os module. I often need to process multiple .csv files, and I usually load them with Pandas, make some changes, and then save it back. My Python code would be like:</p>
+<p>One example of how I use os module. I often need to process multiple .csv files in a directory, and I usually load them with Pandas, make some changes, and then save it back. My Python code would be like:</p>
 <pre><code>for file in os.listdir(path_to_directory):
     if re.search(r'.*\.csv', file):
         do something
@@ -217,7 +217,7 @@ if (!doNotTrack) {
 	    </a>
 
 		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fowang-bio.github.io%2fouwang.io%2fpython-modules%2fos_module%2f
-			&title=OS%20Module&summary=Python%20os%20module%20provides%20functions%20to%20interact%20with%20directories%20and%20files.%20I%20use%20the%20following%203%20functions%20most%20frequently.%0a1.%20os.getcwd%28%29%20os.getcwd%28%29%20returns%20a%20string%20of%20the%20current%20working%20directory.%0a2.%20list%20files%20in%20a%20directory%20os.listdir%28path_to_directory%29%20returns%20a%20list%2c%20and%20the%20elements%20are%20the%20files%20inside%20of%20the%20directory.%0a3.%20Test%20if%20a%20file%20is%20a%20directory%20os.path.isfile%28path%29%20returns%20True%20of%20False%20depending%20on%20if%20the%20path%20is%20to%20a%20directory%20or%20not.&source=rafed123.github.io"
+			&title=OS%20Module&summary=Python%20os%20module%20provides%20functions%20to%20interact%20with%20directories%20and%20files.%20Also%2c%20using%20os%20module%20helps%20improve%20the%20potability%20of%20a%20python%20program.%20I%20use%20the%20following%203%20functions%20most%20frequently.%0a1.%20os.getcwd%28%29%20os.getcwd%28%29%20returns%20a%20string%20of%20the%20current%20working%20directory.%0a2.%20list%20files%20in%20a%20directory%20os.listdir%28path_to_directory%29%20returns%20a%20list%2c%20and%20the%20elements%20are%20the%20files%20inside%20of%20the%20directory.%0a3.%20Test%20if%20a%20file%20is%20a%20directory%20os.&source=rafed123.github.io"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on LinkedIn. Opens in a new window." >
 	        <img src=/ouwang.io/img/icons/45px/linkedin.png>

@@ -13,10 +13,10 @@
       <pubDate>Fri, 03 Dec 2021 08:49:52 -0700</pubDate>
       
       <guid>https://owang-bio.github.io/ouwang.io/python-modules/os_module/</guid>
-      <description>Python os module provides functions to interact with directories and files. I use the following 3 functions most frequently.
+      <description>Python os module provides functions to interact with directories and files. Also, using os module helps improve the potability of a python program. I use the following 3 functions most frequently.
 1. os.getcwd() os.getcwd() returns a string of the current working directory.
 2. list files in a directory os.listdir(path_to_directory) returns a list, and the elements are the files inside of the directory.
-3. Test if a file is a directory os.path.isfile(path) returns True of False depending on if the path is to a directory or not.</description>
+3. Test if a file is a directory os.</description>
     </item>
     
     <item>
